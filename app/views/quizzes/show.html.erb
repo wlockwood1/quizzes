@@ -1,0 +1,25 @@
+<h1><%= @quiz.name %></h1>
+
+<p id="notice"><%= notice %></p>
+
+<%= render 'guess' %>
+
+<table>
+  <tr class=headings>
+    <th>Hint</th>
+    <th>Solution</th>
+  </tr>
+  <% @answers.each do |answer| %>
+      <tr class=sightings>
+        <td><%= answer.hint %></td>
+        <!-- show answer.solution if answer_search => answer.solution-->
+        <td><%= answer.solution %></td>
+        <td><%= link_to 'Edit Details', [:edit, @quiz, answer] %></td>
+        <td><%= link_to 'Remove Answer', [@quiz, answer], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
+  </tr>
+</table><br><br>
+
+<%= link_to 'Add Answers', new_quiz_answer_path(@quiz.id) %> |
+<%= link_to 'Edit', edit_quiz_path(@quiz) %> |
+<%= link_to 'Back', quizzes_path %>

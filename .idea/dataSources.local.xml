@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails quizzes: development" uuid="996ee394-718a-4c51-be1b-e6d8ed34e0fb">
+      <user-name>postgres</user-name>
+      <user-password>dff9dfc9dfc3dfdedfdfdfcbdfdedfcfdf9edf98</user-password>
+      <schema-pattern>quizzes_development.pg_catalog quizzes_development.public</schema-pattern>
+      <default-schemas>quizzes_development.pg_catalog quizzes_development.public</default-schemas>
+    </data-source>
+    <data-source name="Rails quizzes: test" uuid="ffe98650-8ecb-4201-ad31-5c98b121f058">
+      <user-name>postgres</user-name>
+      <user-password>dff9dfc9dfc3dfdedfdfdfcbdfdedfcfdf9edf98</user-password>
+      <schema-pattern>quizzes_test.pg_catalog quizzes_test.public</schema-pattern>
+      <default-schemas>quizzes_test.pg_catalog quizzes_test.public</default-schemas>
+    </data-source>
+    <data-source name="Rails quizzes: production" uuid="11c11457-c56d-4a48-92d3-1c2b9ead1a18">
+      <first-sync>true</first-sync>
+      <user-name>quizzes</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddffbdfffdfe3dff0dff0dfefdff9dff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+    </data-source>
+  </component>
+</project>

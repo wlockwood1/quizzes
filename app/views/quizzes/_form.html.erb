@@ -1,0 +1,24 @@
+<%= form_for(@quiz) do |f| %>
+  <% if @quiz.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@quiz.errors.count, "error") %> prohibited this quiz from being saved:</h2>
+
+      <ul>
+      <% @quiz.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="fields">
+      <%= f.label :name %>
+      <%= f.text_field :name %><br><br>
+    </div>
+
+    <!-- Click on create answers, should render partial for hint/solution form. Enter one, click "Add answer", and the hint/solution will show up on the page, and you will still have option to add hints/solutions. Once all are added, hit submit-->
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
