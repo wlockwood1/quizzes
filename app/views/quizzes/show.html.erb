@@ -2,18 +2,23 @@
 
 <p id="notice"><%= notice %></p>
 
+<% if @quiz.description %>
+    <h3><%= @quiz.description %></h3>
+<% end %>
+
+
 <%= render 'guess' %>
 
 <table>
   <tr class=headings>
-    <th>Hint</th>
-    <th>Solution</th>
+    <th colspan="5">Hint</th>
+    <th colspan="5">Solution</th>
   </tr>
   <% @answers.each do |answer| %>
-      <tr class=sightings>
-        <td><%= answer.hint %></td>
-        <!-- show answer.solution if answer_search => answer.solution-->
-        <td><%= answer.solution %></td>
+      <tr class=answers>
+        <td colspan="5"><%= answer.hint %></td>
+        <!-- show answer.solution if answer_guess => answer.solution-->
+        <td colspan="5"><%= answer.solution %></td>
         <td><%= link_to 'Edit Details', [:edit, @quiz, answer] %></td>
         <td><%= link_to 'Remove Answer', [@quiz, answer], method: :delete, data: { confirm: 'Are you sure?' } %></td>
   <% end %>

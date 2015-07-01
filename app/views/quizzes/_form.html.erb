@@ -13,9 +13,12 @@
 
     <div class="fields">
       <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name %><br><br>
+      <%= f.label :description, "Quiz Description" %>
+      <%= f.text_field :description, placeholder: "Enter a description for the quiz" %><br><br><br>
       <%= f.collection_select(:category_id, @categories, :id, :name, :prompt => "Select a Category") %><br><br><br>
     </div>
+
 
     <!-- Click on create answers, should render partial for hint/solution form. Enter one, click "Add answer", and the hint/solution will show up on the page, and you will still have option to add hints/solutions. Once all are added, hit submit-->
 

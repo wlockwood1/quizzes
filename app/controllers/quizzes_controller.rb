@@ -23,6 +23,7 @@ class QuizzesController < ApplicationController
 
   # GET /quizzes/1/edit
   def edit
+    @categories = Category.all
   end
 
   # POST /quizzes
