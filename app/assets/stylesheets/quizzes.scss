@@ -1,3 +1,22 @@
 // Place all the styles related to the quizzes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+.panel {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#btn-reset {
+  margin-right: 10px;
+}
+#clock {
+  margin-bottom: 0;
+}

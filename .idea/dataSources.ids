@@ -1615,6 +1615,7 @@
       <column name="name" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
       <column name="created_at" sqlType="timestamp" precision="29" scale="6" nullable="false" jdbcType="93"/>
       <column name="updated_at" sqlType="timestamp" precision="29" scale="6" nullable="false" jdbcType="93"/>
+      <column name="description" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="quizzes_pkey" columns="id"/>
     </table>
     <table name="quizzes_id_seq" schema="public" catalog="quizzes_development" type="SEQUENCE">

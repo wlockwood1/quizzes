@@ -12,6 +12,12 @@ class QuizzesController < ApplicationController
   def show
     @quiz = Quiz.find(params[:id])
     @answers = @quiz.answers.all
+    # if params[:search]
+    #   @solutions = @quiz.answers.solutions.all
+    #   @solutions = @quiz.answers.solutions.search(params[:search])
+    # else
+    #   @solutions = []
+    # end
     # render 'show'
   end
 

@@ -11,12 +11,15 @@
     </div>
   <% end %>
 
-    <div class="fields">
-      <%= f.label :name %>
+    <div class="fields form-group">
+      <%= f.label :name %><br/>
       <%= f.text_field :name %><br><br>
       <%= f.label :description, "Quiz Description" %>
-      <%= f.text_field :description, placeholder: "Enter a description for the quiz" %><br><br><br>
-      <%= f.collection_select(:category_id, @categories, :id, :name, :prompt => "Select a Category") %><br><br><br>
+      <%= f.text_field :description, class: "form-control", placeholder: "Enter a description for the quiz" %><br/>
+      <%= f.label :category_id, "Select a category for this quiz" %><br/>
+      <%= f.collection_select(:category_id, @categories, :id, :name, :prompt => "Select a Category") %><br/><br/>
+      <%= f.label :time_limit, "Please enter the time limit for this quiz (in minutes). Ex: 5.5 would be 5:30" %>
+      <%= f.text_field :time_limit %><br><br>
     </div>
 
 

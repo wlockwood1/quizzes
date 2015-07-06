@@ -1,8 +1,14 @@
 <!--When form submitted, will see if value is equal to any of the solutions-->
 
-<%= form_tag quiz_path(@quiz), :method => 'get', :id => 'guess' do %>
-    <p>
-      <%= text_field_tag :guess, params[:search], placeholder: "Guess here" %>
-      <%= submit_tag "Guess answer", :name => nil %>
-    </p>
-<% end %>
+<div class="form-group">
+    <%= form_tag quiz_path(@quiz), :method => 'get', :id => 'guess' do %>
+        <p>
+          <%= text_field_tag :guess, params[:search], class: "form-control", placeholder: "Guess here" %>
+          <%= submit_tag "Guess answer", :name => nil %>
+        </p>
+    <% end %>
+</div>
+
+<!--May have to split strings for names or cities/mascots, check if guess == solution_first || solution_last-->
+
+
