@@ -17,6 +17,9 @@
   <!--<h2><%= link_to "Start Quiz" %></h2>-->
 <!--</div><br><br>-->
 
+<!--Look at increment_counter for rails (Game.increment_counter(:correct_answers, @game))-->
+<!--'Guess shouldn't render until the 'Start game' button is clicked. Javascript-->
+<!--<Sporcle code: input type="text" id="gameinput" size="35" class="answerEntry" onkeyup="checkGameInput(this);" autocapitalize="off" spellcheck="true" autocomplete="off" autocorrect="off">-->
 <%= render 'guess' %>
 
 <table class="table">
@@ -26,8 +29,8 @@
   </tr>
   <% @answers.each do |answer| %>
       <tr class=answers>
-        <td><%= answer.hint %></td>
-        <!-- show answer.solution if answer_guess => answer.solution-->
+        <td class="answer_hint"><%= answer.hint %></td>
+        <td class="answer_solution"><%= answer.solution %></td>
         <td></td>
         <td><%= link_to 'Edit Details', [:edit, @quiz, answer] %></td>
         <td><%= link_to 'Remove Answer', [@quiz, answer], method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -37,6 +40,7 @@
 
 <%= link_to 'Add Answers', new_quiz_answer_path(@quiz.id) %> |
 <%= link_to 'Edit', edit_quiz_path(@quiz) %> |
-<%= link_to 'Back', quizzes_path %>
+<%= link_to 'Back', quizzes_path %><br><br>
 
-<%= render 'timer' %>
+<a id="give_up" href="#">Give up?</a>
+<!--render 'timer'-->

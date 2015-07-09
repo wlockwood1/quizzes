@@ -12,13 +12,20 @@ class QuizzesController < ApplicationController
   def show
     @quiz = Quiz.find(params[:id])
     @answers = @quiz.answers.all
-    # if params[:search]
-    #   @solutions = @quiz.answers.solutions.all
-    #   @solutions = @quiz.answers.solutions.search(params[:search])
-    # else
-    #   @solutions = []
+    if params[:search]
+      @solutions = @quiz.answers.solutions.all
+      @solutions = @quiz.answers.solutions.search(params[:search])
+    #   It will refresh every time a new search is done. Need to figure out how to keep correct answers on page
+    else
+      @solutions = []
+    end
+
+    render 'show'
+
+    # respond_to do |format|
+    #   format.html { redirect_to @post}
+    #   format.js #render comments/create.js.erb
     # end
-    # render 'show'
   end
 
   # GET /quizzes/new
