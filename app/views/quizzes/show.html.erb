@@ -13,28 +13,31 @@
 <% end %>
 
 
-<!--<div id="start-quiz">-->
-  <!--<h2><= render 'games/form' %></h2>-->
-<!--</div><br><br>-->
+<div id="pre_quiz">
+  <button id="start_quiz">Start Quiz!</button>
+</div><br><br>
 
 <!--Look at increment_counter for rails (Game.increment_counter(:correct_answers, @game))-->
-<!--'Guess shouldn't render until the 'Start game' button is clicked. Javascript-->
+<!--'Guess and answers shouldn't render until the 'Start game' button is clicked. Javascript-->
 <!--<Sporcle code: input type="text" id="gameinput" size="35" class="answerEntry" onkeyup="checkGameInput(this);" autocapitalize="off" spellcheck="true" autocomplete="off" autocorrect="off">-->
-<%= render 'guess' %>
 
-<table class="table">
-  <tr class=headings>
-    <th>Hint</th>
-    <th>Solution</th>
-  </tr>
+<div id="live_game">
+    <%= render 'guess' %>
 
-  <%= render @answers %>
+    <table class="table answers">
+      <tr class="headings">
+        <th>Hint</th>
+        <th>Solution</th>
+      </tr>
 
-</table><br><br>
+      <%= render @answers %>
 
-<%= link_to 'Add Answers', new_quiz_answer_path(@quiz.id) %> |
-<%= link_to 'Edit', edit_quiz_path(@quiz) %> |
-<%= link_to 'Back', quizzes_path %><br><br>
+    </table><br><br>
 
-<a id="give_up" href="#">Give up?</a>
+    <%= link_to 'Add Answers', new_quiz_answer_path(@quiz.id) %> |
+    <%= link_to 'Edit', edit_quiz_path(@quiz) %> |
+    <%= link_to 'Back', quizzes_path %><br><br>
+
+    <a id="give_up" href="#">Give up?</a>
+</div>
 <!--render 'timer'-->

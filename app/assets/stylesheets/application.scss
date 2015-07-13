@@ -24,6 +24,7 @@ body {
 
 .answer_solution {
   display: none;
+  color: red;
 }
 
 .answer_solution_correct {
@@ -36,4 +37,8 @@ body {
 
 .col-md-1 {
   background-color: #FFFFFF;
+}
+
+#live_game {
+  display: none
 }
