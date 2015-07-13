@@ -6,11 +6,12 @@ body {
   padding-top: 50px;
 }
 
+.timer {
+  display: none;
+}
 
-
-.starter-template {
-  padding: 40px 15px;
-  text-align: center;
+#btn-pause {
+  display: none;
 }
 .panel {
   width: 400px;

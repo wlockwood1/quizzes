@@ -30,7 +30,7 @@ body {
 .answer_solution_correct {
   color: green;
 }
-
+//
 //.navbar {
 //  background-color: #ADD8E6;
 //}
@@ -41,4 +41,12 @@ body {
 
 #live_game {
   display: none
+}
+
+.main {
+  background-color: #ffffff
+}
+
+.pre_quiz {
+  position: fixed;
 }

@@ -1,90 +1,92 @@
+<div class="timer">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="//cdn.rawgit.com/hilios/jQuery.countdown/2.0.4/dist/jquery.countdown.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <style type="text/css">
 
-  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
-  <!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>-->
-  <!--<script src="//cdn.rawgit.com/hilios/jQuery.countdown/2.0.4/dist/jquery.countdown.min.js"></script>-->
-  <!--<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">-->
-  <!--<style type="text/css">-->
+      body {
+          padding-top: 50px;
+      }
+      .starter-template {
+          padding: 40px 15px;
+          text-align: center;
+      }
+      .panel {
+          width: 400px;
+          margin-left: auto;
+          margin-right: auto;
+      }
 
-      /*body {*/
-          /*padding-top: 50px;*/
-      /*}*/
-      /*.starter-template {*/
-          /*padding: 40px 15px;*/
-          /*text-align: center;*/
-      /*}*/
-      /*.panel {*/
-          /*width: 400px;*/
-          /*margin-left: auto;*/
-          /*margin-right: auto;*/
-      /*}*/
-      /*#btn-reset {*/
-          /*margin-right: 10px;*/
-      /*}*/
-      /*#clock {*/
-          /*margin-bottom: 0;*/
-      /*}*/
-  <!--</style>-->
+      .timer {
+          display: none;
+      }
 
-<!--<body>-->
+      #clock {
+          margin-bottom: 0;
+      }
 
-<!--<div class="container">-->
-  <!--<div class="starter-template col-md-offset-6">-->
-    <!--<h1>Time Remaining</h1>-->
-    <!--<p class="lead"></p>-->
-    <!--<div class="panel panel-default" data-toggle="tooltip" data-placement="top" title="countdown_clock">-->
-      <!--<div class="panel-body">-->
-        <!--<div class="lead" id="clock"></div>-->
-      <!--</div>-->
-    <!--</div>-->
+  </style>
+
+<body>
+
+<div class="container timer">
+  <div class="starter-template col-md-offset-6">
+    <h1>Time Remaining</h1>
+    <p class="lead"></p>
+    <div class="panel panel-default" data-toggle="tooltip" data-placement="top" title="countdown_clock">
+      <div class="panel-body">
+        <div class="lead" id="clock"></div>
+      </div>
+    </div>
 
     <!--<button type="button" class="btn btn-primary" id="btn-reset">-->
       <!--<i class="glyphicon glyphicon-repeat"></i>-->
       <!--Reset countdown-->
     <!--</button>-->
 
-    <!--<div class="btn-group" data-toggle="buttons">-->
-      <!--<label class="btn btn-default" id="btn-pause">-->
-        <!--<input type="radio" name="options" id="option2" autocomplete="off">-->
-        <!--<i class="glyphicon glyphicon-pause"></i>-->
-        <!--Pause-->
-      <!--</label>-->
+    <!-- Should hide until start game button pressed-->
+    <div class="btn-group" data-toggle="buttons">
+      <label class="btn btn-default" id="btn-pause">
+        <input type="radio" name="options" id="option2" autocomplete="off">
+        <i class="glyphicon glyphicon-pause"></i>
+        Pause Game
+      </label>
 
-      <!--<label class="btn btn-default active" id="btn-resume">-->
-        <!--<input type="radio" name="options" id="option2" autocomplete="off" checked>-->
-        <!--<i class="glyphicon glyphicon-play"></i>-->
-        <!--Resume-->
-      <!--</label>-->
-    <!--</div>-->
-  <!--</div>-->
-<!--</div>-->
+      <label class="btn btn-default active" id="btn-resume">
+        <input type="radio" name="options" id="option2" autocomplete="off" checked>
+        <i class="glyphicon glyphicon-play"></i>
+        Resume Game
+      </label>
+    </div>
+  </div>
+</div>
 
-<!--<script type="text/javascript">-->
-//    // Turn on Bootstrap
-//    $('[data-toggle="tooltip"]').tooltip();
-//
-//    function getQuizTimer() {
-//        return new Date(new Date().valueOf() + <%= @quiz.time_limit %> * 60 * 1000);
-//    }
-//
-//    var $clock = $('#clock');
-//
+<script type="text/javascript">
+    // Turn on Bootstrap
+    $('[data-toggle="tooltip"]').tooltip();
+
+    function getQuizTimer() {
+        return new Date(new Date().valueOf() + <%= @quiz.time_limit %> * 60 * 1000);
+    }
+
+    var $clock = $('#clock');
 //    $clock.countdown(getQuizTimer(), function(event) {
 //        $(this).html(event.strftime('%M:%S'));
 //    });
-//
-//    $('#btn-reset').click(function() {
-//        $clock.countdown(getQuizTimer());
-//    });
-//
-//    $('#btn-pause').click(function() {
-//        $clock.countdown('pause');
-////        Pop-up or redirects to new page when paused so user can't see page
-////        This isn't pausing it completely. Hidden time is still counting down even when paused. It does that on the sample site too
-//    });
-//
-//    $('#btn-resume').click(function() {
-//        $clock.countdown('resume');
-//    });
-//
-<!--</script>-->
+    $('#btn-reset').click(function() {
+        $clock.countdown(getQuizTimer());
+    });
 
+    $('#btn-pause').click(function() {
+        $clock.countdown('pause');
+//        Pop-up or redirects to new page when paused so user can't see page
+//        This isn't pausing it completely. Hidden time is still counting down even when paused. It does that on the sample site too
+    });
+
+    $('#btn-resume').click(function() {
+        $clock.countdown('resume');
+    });
+
+</script>
+</div>

@@ -2,24 +2,20 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-#$(document).on "page:change", ->
-#  $('#start-quiz').click ->
-#    alert 'Quiz started!'
-#    Start timer
-#    Show div
-#
-
 $(document).on "page:change", ->
 
   $('#start_quiz').click (e) ->
     e.preventDefault()
     $('#live_game').show()
     $('#start_quiz').hide()
+    $('#guess').find('.form-control').focus()
+    $('.timer').show()
+    $clock.countdown getQuizTimer(), (event) ->
+      $(this).html event.strftime('%M:%S')
 
-
+#  User enters guess
   $('#guess').submit (e) ->
     e.preventDefault()
-#    alert 'Good guess!';
 #    Calls checkAnswer function for guess
     checkAnswer(e)
     $($(e.target).find('input')[1]).val('')
@@ -29,7 +25,7 @@ $(document).on "page:change", ->
   #  Checks to see if guess value matches any of the answers
   checkAnswer = (e) ->
     e.preventDefault()
-#   Sets value of text input in guess form to txt
+#   Sets value of text input in guess form to txt. Maybe if full names, can split at space so you can only guess last name
     txt = $($(e.target).find('input')[1]).val() ;
 #    Check each solution in the quiz
     $('.answer_solution').each (i, answ) ->
@@ -45,12 +41,16 @@ $(document).on "page:change", ->
 #     Removes previous class so the answer will stay on page
     $(e).removeClass 'answer_solution'
 #    Increment correct answers
+    modify_corr(1)
+  #   Ruby: Game.increment_counter(:correct_answers, @game)
 
 #  Shows all answers when user gives up on game
   $('#give_up').click (event) ->
     event.preventDefault()
     $('.answer_solution').show()
+    $('#guess').hide()
     $('#give_up').hide()
+    $clock.countdown('stop');
 
   #  Starts game/countdown after pause
   $('#start').click (event) ->
@@ -62,3 +62,19 @@ $(document).on "page:change", ->
 #  Pauses game/countdown. Use countdown js
   $('#pause').click (event) ->
 
+
+#  Increases correct answer count
+  modify_corr = (val) ->
+    corr = document.getElementById('corr').value
+    new_corr = parseInt(corr, 10) + val
+    if new_corr < 0
+      new_corr = 0
+    document.getElementById('corr').value = new_corr
+    new_corr
+
+#  Show answers and hide guess when clock hits 0. Why doesn't this work?!?!
+  if $clock.text() == "00:00"
+    $('.answer_solution').show()
+    $('#guess').hide()
+    $('#give_up').hide()
+    return

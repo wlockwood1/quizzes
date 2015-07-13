@@ -2,10 +2,11 @@
 
     <div class="fields">
       <% f.hidden_field :quiz_id %><br/>
+      <% f.hidden_field :correct_ans, value: 0 %>
       <!--<= f.hidden_field :user_id %>-->
     </div>
 
     <div class="actions">
-      <%= f.submit "Start Game" %>
+      <%= f.submit "Start Game!" %>
     </div>
 <% end %>
