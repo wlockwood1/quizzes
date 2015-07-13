@@ -1,10 +1,8 @@
-<!--When form submitted, will see if value is equal to any of the solutions. Use coffescript-->
-
 <div class="form-group" id="guess">
     <%= form_tag quiz_path(@quiz), :method => 'get', remote: true, :id => 'guess' do %>
         <p>
           <%= text_field_tag :guess, params[:search], class: "form-control", placeholder: "Guess here" %>
-          <%= submit_tag "Guess answer"%>
+          <%= submit_tag "Guess answer" %>
         </p>
     <% end %>
 </div>

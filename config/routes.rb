@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :quizzes do
     resources :answers, only: [:new, :create, :edit, :update, :destroy]
+    resources :games, only: [:new, :create]
   end
   resources :categories
 

@@ -1,8 +1,8 @@
 <!--Include the jQuery library (1.4+) in the head section of your page. Download and include the jQuery Countdown CSS and JavaScript in the head section of your page.-->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/jquery.countdown.css">
-<script type="text/javascript" src="js/jquery.plugin.js"></script>
-<script type="text/javascript" src="js/jquery.countdown.js"></script>
+<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
+<!--<link rel="stylesheet" type="text/css" href="css/jquery.countdown.css">-->
+<!--<script type="text/javascript" src="js/jquery.plugin.js"></script>-->
+<!--<script type="text/javascript" src="js/jquery.countdown.js"></script>-->
 
 <h1><%= @quiz.name %></h1>
 
@@ -14,7 +14,7 @@
 
 
 <!--<div id="start-quiz">-->
-  <!--<h2><%= link_to "Start Quiz" %></h2>-->
+  <!--<h2><= render 'games/form' %></h2>-->
 <!--</div><br><br>-->
 
 <!--Look at increment_counter for rails (Game.increment_counter(:correct_answers, @game))-->
@@ -27,15 +27,9 @@
     <th>Hint</th>
     <th>Solution</th>
   </tr>
-  <% @answers.each do |answer| %>
-      <tr class=answers>
-        <td class="answer_hint"><%= answer.hint %></td>
-        <td class="answer_solution"><%= answer.solution %></td>
-        <td></td>
-        <td><%= link_to 'Edit Details', [:edit, @quiz, answer] %></td>
-        <td><%= link_to 'Remove Answer', [@quiz, answer], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  <% end %>
-  </tr>
+
+  <%= render @answers %>
+
 </table><br><br>
 
 <%= link_to 'Add Answers', new_quiz_answer_path(@quiz.id) %> |

@@ -9,12 +9,7 @@
     <th>Hint</th>
     <th>Solution</th>
   </tr>
-  <% @answers.each do |answer| %>
-      <tr class=sightings>
-        <td><%= answer.hint %></td>
-        <td><%= answer.solution %></td>
-        <td><%= link_to 'Edit Details', [:edit, answer.quiz, answer] %></td>
-        <td><%= link_to 'Remove Answer', [answer.quiz, answer], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  <% end %>
-  </tr>
+
+<%= render @answers %>
+
 </table><br><br>
