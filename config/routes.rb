@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :quizzes do
-    resources :answers, only: [:new, :create, :edit, :update, :destroy]
+    resources :answers
     resources :games, only: [:new, :create]
   end
   resources :categories

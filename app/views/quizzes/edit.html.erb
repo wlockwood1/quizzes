@@ -3,4 +3,24 @@
 <%= render 'form' %>
 
 <%= link_to 'Show', @quiz %> |
-<%= link_to 'Back', quizzes_path %>
+<%= link_to 'Back', quizzes_path %> |
+<%= link_to 'Add Answers', new_quiz_answer_path(@quiz.id) %>
+
+<!--<= link_to 'Show Answers', @answers, remote: true %>-->
+
+<div id="show_answers">
+  <table class="table answers">
+    <tr class="headings">
+      <th>Hint</th>
+      <th>Solution</th>
+    </tr>
+    <% @answers.each do |answer| %>
+        <tr class=answers id="answer_<%= answer.id %>">
+          <td><%= answer.hint %></td>
+          <td><%= answer.solution %></td>
+          <td><%= link_to 'Edit Details', [:edit, @quiz, answer] %></td>
+          <td><%= link_to 'Remove Answer', [@quiz, answer], method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td>
+    <% end %>
+  </table><br><br>
+
+</div>

@@ -10,6 +10,9 @@ body {
   display: none;
 }
 
+.answer_count {
+  display: none;
+}
 #btn-pause {
   display: none;
 }
@@ -17,6 +20,7 @@ body {
   width: 400px;
   margin-left: auto;
   margin-right: auto;
+
 }
 #btn-reset {
   margin-right: 10px;

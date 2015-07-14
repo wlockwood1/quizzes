@@ -8,11 +8,21 @@ $(document).on "page:change", ->
     e.preventDefault()
     $('#live_game').show()
     $('#start_quiz').hide()
+    $('options').hide()
     $('#guess').find('.form-control').focus()
     $('.timer').show()
+    $('.answer_count').show()
     $clock.countdown getQuizTimer(), (event) ->
       $(this).html event.strftime('%M:%S')
 
+    .on('finish.countdown', ->
+      $('.answer_solution').show()
+      $('#guess').hide()
+      $('#give_up').hide())
+
+
+    .on('pause.countdown', ->
+                  )
 #  User enters guess
   $('#guess').submit (e) ->
     e.preventDefault()
@@ -61,7 +71,6 @@ $(document).on "page:change", ->
 
 #  Pauses game/countdown. Use countdown js
   $('#pause').click (event) ->
-
 
 #  Increases correct answer count
   modify_corr = (val) ->

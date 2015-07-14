@@ -2,6 +2,8 @@
   <td class="answer_hint"><%= answer.hint %></td>
   <td class="answer_solution"><%= answer.solution %></td>
   <td></td>
-  <!--<td><= link_to 'Edit Details', [:edit, @quiz, answer] %></td>-->
-  <!--<td><= link_to 'Remove Answer', [@quiz, answer], method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+  <div class="answer_edits">
+    <td><%= link_to 'Edit Answer', [:edit, @quiz, answer] %></td>
+    <td><%= link_to 'Remove Answer', [@quiz, answer], method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td>
+  </div>
 </tr>
