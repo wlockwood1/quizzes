@@ -8,21 +8,21 @@ $(document).on "page:change", ->
     e.preventDefault()
     $('#live_game').show()
     $('#start_quiz').hide()
-    $('options').hide()
+    $('options  ').hide()
     $('#guess').find('.form-control').focus()
     $('.timer').show()
     $('.answer_count').show()
     $clock.countdown getQuizTimer(), (event) ->
       $(this).html event.strftime('%M:%S')
 
+#    Shows all answers and stop quiz when clock hits 0:00
     .on('finish.countdown', ->
       $('.answer_solution').show()
       $('#guess').hide()
       $('#give_up').hide())
 
-
-    .on('pause.countdown', ->
-                  )
+#    .on('pause.countdown', ->
+#                  )
 #  User enters guess
   $('#guess').submit (e) ->
     e.preventDefault()
@@ -80,10 +80,3 @@ $(document).on "page:change", ->
       new_corr = 0
     document.getElementById('corr').value = new_corr
     new_corr
-
-#  Show answers and hide guess when clock hits 0. Why doesn't this work?!?!
-  if $clock.text() == "00:00"
-    $('.answer_solution').show()
-    $('#guess').hide()
-    $('#give_up').hide()
-    return

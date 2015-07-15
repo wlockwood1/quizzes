@@ -19,12 +19,12 @@
 
             <!-- This should be form for new game. Hidden fields for user_id, quiz_id and correct_ans(0).-->
             <div class="pre_quiz">
-              <button class='btn-primary' id="start_quiz">Start Quiz!</button><br><br>
-              <!-- < render 'games/form ' %>-->
+              <!--<button class='btn-primary' id="start_quiz">Start Quiz!</button><br><br>-->
+               <%= render partial: 'games/form', locals: {quiz: @quiz} %>
             </div>
         </div>
 
-        <!--Look at increment_counter for rails (Game.increment_counter(:correct_ans, @game))-->
+        <!--Look at increment_counter for rails (Game.increment_counter(:correct_ans, @game OR Game.last))-->
 
         <div id="live_game">
           <!--<div class="fix_top">-->
@@ -50,8 +50,6 @@
         </div>
     </div>
         <%= render 'timer' %>
-
-    <!--<div class="col-md-4 answer_count">-->
-      <!--<br>-->
-    <!--</div>-->
 </div>
+
+<!--Show feed on side showing high scores for quiz - User, % correct, when played-->

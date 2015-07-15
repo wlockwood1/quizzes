@@ -1,12 +1,20 @@
-<%= form_for @game, remote: true do |f| %>
-
-    <div class="fields">
-      <% f.hidden_field :quiz_id %><br/>
+<% g = Game.new
+   g.quiz_id = quiz.id %>
+   <!--g.user = quiz.user -->
+<%=  form_for [@quiz, g], remote: true  do |f| %>
+    <div class="form-group">
+      <!--< f.hidden_field :quiz_id %><br/>-->
       <% f.hidden_field :correct_ans, value: 0 %>
-      <!--<= f.hidden_field :user_id %>-->
-    </div>
-
-    <div class="actions">
-      <%= f.submit "Start Game!" %>
+      <!--< if user_signed_in? %>-->
+          <!--<= f.hidden_field :user_id, value: current_user.id %><br/>-->
+      <!--< end %>-->
+      <%= f.submit 'Start game!',class: "new-comment btn btn-primary", id: "start_quiz" %>
     </div>
 <% end %>
+
+    <!--<div class="actions">-->
+      <!--<button class='btn-primary' id="start_quiz"><= f.submit "Start Game!" %></button>-->
+    <!--</div>-->
+<!--< end %>-->
+
+
