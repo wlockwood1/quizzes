@@ -7,3 +7,63 @@
 //return $clock.countdown(getQuizTimer(), function(event) {
 //    return $(this).html(event.strftime('%M:%S'));
 //}
+
+var checkAnswer, modify_corr, rightAnswer;
+    $('#live_game').show();
+    $('#start_quiz').hide();
+    $('options').hide();
+    $('#guess').find('.form-control').focus();
+    $('.timer').show();
+    $('.answer_count').show();
+    $clock.countdown(getQuizTimer(), function(event) {
+        return $(this).html(event.strftime('%M:%S'));
+    }).on('finish.countdown', function() {
+        $('.answer_solution').show();
+        $('#guess').hide();
+        return $('#give_up').hide();
+    });
+
+$('#guess').submit(function(e) {
+    e.preventDefault();
+    checkAnswer(e);
+    return $($(e.target).find('input')[1]).val('');
+});
+checkAnswer = function(e) {
+    var txt;
+    e.preventDefault();
+    txt = $($(e.target).find('input')[1]).val();
+    return $('.answer_solution').each(function(i, answ) {
+        if (txt.toUpperCase().indexOf($(answ).text().toUpperCase()) !== -1) {
+            rightAnswer(answ);
+        }
+    });
+};
+rightAnswer = function(e) {
+    $(e).addClass('answer_solution_correct');
+    $(e).removeClass('answer_solution');
+    $($(e.target).find('input')[1]).val('');
+    modify_corr(1);
+};
+$('#give_up').click(function(event) {
+    event.preventDefault();
+    $('.answer_solution').show();
+    $('#guess').hide();
+    $('#give_up').hide();
+    $clock.countdown('stop');
+});
+//$('#start').click(function(event) {});
+//$('#play').click(function(event) {});
+//$('#pause').click(function(event) {});
+////
+
+//debugger
+modify_corr = function(val) {
+    var corr, new_corr;
+    corr = document.getElementById('corr').value;
+    new_corr = parseInt(corr, 10) + val;
+    if (new_corr < 0) {
+        new_corr = 0;
+    }
+    corr = new_corr;
+    return new_corr;
+});

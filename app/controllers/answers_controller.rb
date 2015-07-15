@@ -35,7 +35,7 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to edit_quiz_path(@answer.quiz), notice: 'Answer was successfully created.' }
+        format.html { redirect_to new_quiz_answer_path(@answer.quiz), notice: 'Answer was successfully created.' }
         format.json { render :show, status: :created, location: @answer }
       else
         format.html { render :new }

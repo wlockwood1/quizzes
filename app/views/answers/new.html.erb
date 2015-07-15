@@ -2,14 +2,23 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Back', quiz_path(@answer.quiz) %>
+<%= link_to 'Back', quiz_path(@answer.quiz) %><br>
 
-<!--<table class="table answers">-->
-  <!--<tr class=headings>-->
-    <!--<th>Hint</th>-->
-    <!--<th>Solution</th>-->
-  <!--</tr>-->
+<p><%= @answers.count %> answers</p>
 
-<!--&lt;!&ndash;<= render @answers %>&ndash;&gt;-->
+<div id="show_answers">
+  <table class="table answers">
+    <tr class="headings">
+      <th>Hint</th>
+      <th>Solution</th>
+    </tr>
+    <% @answers.each do |answer| %>
+        <tr class=answers id="answer_<%= answer.id %>">
+          <td><%= answer.hint %></td>
+          <td><%= answer.solution %></td>
+          <td><%= link_to 'Edit Details', [:edit, @answer.quiz, answer] %></td>
+          <td><%= link_to 'Remove Answer', [@answer.quiz, answer], method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td>
+    <% end %>
+  </table><br><br>
 
-<!--</table><br><br>-->
+</div>
