@@ -10,6 +10,8 @@ class AnswersController < ApplicationController
   # GET /answers/1
   # GET /answers/1.json
   def show
+    @quiz = Quiz.find(params[:id])
+    @answers = @quiz.answers.all
   end
 
   # GET /answers/new
@@ -21,6 +23,9 @@ class AnswersController < ApplicationController
 
   # GET /answers/1/edit
   def edit
+    quiz = Quiz.find(params[:quiz_id])
+    @answer = Answer.find(params[:id])
+    @answers = quiz.answers.all
   end
 
   # POST /answers
@@ -30,7 +35,7 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to new_quiz_answer_path, notice: 'Answer was successfully created.' }
+        format.html { redirect_to new_quiz_answer_path(@answer.quiz), notice: 'Answer was successfully created.' }
         format.json { render :show, status: :created, location: @answer }
       else
         format.html { render :new }
@@ -42,9 +47,10 @@ class AnswersController < ApplicationController
   # PATCH/PUT /answers/1
   # PATCH/PUT /answers/1.json
   def update
+    @answer = Answer.find(params[:id])
     respond_to do |format|
       if @answer.update(answer_params)
-        format.html { redirect_to @answer, notice: 'Answer was successfully updated.' }
+        format.html { redirect_to edit_quiz_path(@answer.quiz), notice: 'Answer was successfully updated.' }
         format.json { render :show, status: :ok, location: @answer }
       else
         format.html { render :edit }
@@ -58,8 +64,9 @@ class AnswersController < ApplicationController
   def destroy
     @answer.destroy
     respond_to do |format|
-      format.html { redirect_to new_quiz_answer_path, notice: 'Answer was successfully destroyed.' }
+      format.html { redirect_to edit_quiz_path(@quiz), notice: 'Answer was successfully destroyed.' }
       format.json { head :no_content }
+      format.js {}
     end
   end
 

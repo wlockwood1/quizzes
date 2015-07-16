@@ -1,30 +1,56 @@
-<h1><%= @quiz.name %></h1>
+<!--Include the jQuery library (1.4+) in the head section of your page. Download and include the jQuery Countdown CSS and JavaScript in the head section of your page.-->
+<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
+<!--<link rel="stylesheet" type="text/css" href="css/jquery.countdown.css">-->
+<!--<script type="text/javascript" src="js/jquery.plugin.js"></script>-->
+<!--<script type="text/javascript" src="js/jquery.countdown.js"></script>-->
 
-<p id="notice"><%= notice %></p>
+<!--This should be fixed to top along with quiz guess-->
 
-<% if @quiz.description %>
-    <h3><%= @quiz.description %></h3>
-<% end %>
+<div class="row">
+    <div class="col-md-6" role="main">
+        <div class="fix_top">
+            <h1><%= @quiz.name %></h1>
 
+            <p id="notice"><%= notice %></p>
 
-<%= render 'guess' %>
+            <% if @quiz.description %>
+                <h3><%= @quiz.description %></h3>
+            <% end %>
 
-<table>
-  <tr class=headings>
-    <th colspan="5">Hint</th>
-    <th colspan="5">Solution</th>
-  </tr>
-  <% @answers.each do |answer| %>
-      <tr class=answers>
-        <td colspan="5"><%= answer.hint %></td>
-        <!-- show answer.solution if answer_guess => answer.solution-->
-        <td colspan="5"><%= answer.solution %></td>
-        <td><%= link_to 'Edit Details', [:edit, @quiz, answer] %></td>
-        <td><%= link_to 'Remove Answer', [@quiz, answer], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  <% end %>
-  </tr>
-</table><br><br>
+            <!-- This should be form for new game. Hidden fields for user_id, quiz_id and correct_ans(0).-->
+            <div class="pre_quiz">
+              <!--<button class='btn-primary' id="start_quiz">Start Quiz!</button><br><br>-->
+               <%= render partial: 'games/form', locals: {quiz: @quiz} %>
+            </div>
+        </div>
 
-<%= link_to 'Add Answers', new_quiz_answer_path(@quiz.id) %> |
-<%= link_to 'Edit', edit_quiz_path(@quiz) %> |
-<%= link_to 'Back', quizzes_path %>
+        <!--Look at increment_counter for rails (Game.increment_counter(:correct_ans, @game OR Game.last))-->
+
+        <div id="live_game">
+          <!--<div class="fix_top">-->
+            <%= render 'guess' %>
+          <!--</div>-->
+
+            <table class="table answers">
+              <tr class="headings">
+                <th>Hint</th>
+                <th>Solution</th>
+              </tr>
+
+              <%= render @answers %>
+
+            </table><br><br>
+
+          <div class="options">
+            <%= link_to 'Add Answers', new_quiz_answer_path(@quiz.id) %> |
+            <%= link_to 'Edit', edit_quiz_path(@quiz) %> |
+            <%= link_to 'Back', quizzes_path %><br><br>
+          </div>
+
+        </div>
+    </div>
+    <!--Make this show on game.create <div id="timer"></div>-->
+        <%= render 'timer' %>
+</div>
+
+<!--Show feed on side showing high scores for quiz - User, % correct, when played-->

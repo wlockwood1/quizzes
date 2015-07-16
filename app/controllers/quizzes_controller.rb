@@ -12,7 +12,8 @@ class QuizzesController < ApplicationController
   def show
     @quiz = Quiz.find(params[:id])
     @answers = @quiz.answers.all
-    # render 'show'
+    @correct = Game.last.correct_ans
+    render 'show'
   end
 
   # GET /quizzes/new
@@ -23,7 +24,9 @@ class QuizzesController < ApplicationController
 
   # GET /quizzes/1/edit
   def edit
+    @quiz = Quiz.find(params[:id])
     @categories = Category.all
+    @answers = @quiz.answers.all
   end
 
   # POST /quizzes
@@ -33,7 +36,7 @@ class QuizzesController < ApplicationController
 
     respond_to do |format|
       if @quiz.save
-        format.html { redirect_to @quiz, notice: 'Quiz was successfully created.' }
+        format.html { redirect_to edit_quiz_path(@quiz), notice: 'Quiz was successfully created.' }
         format.json { render :show, status: :created, location: @quiz }
       else
         format.html { render :new }

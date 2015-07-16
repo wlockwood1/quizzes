@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
-  <div class="container">
+  <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -14,8 +14,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-            <li class="new_quiz"><%= link_to 'Create New Quiz', new_quiz_path %></li>
-            <li role="presentation" class="dropdown">
+        <li class="new_category"><%= link_to 'New Category', new_category_path %></li>
+        <li class="new_quiz"><%= link_to 'New Quiz', new_quiz_path %></li>
+        <li role="presentation" class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                 Categories<span class="caret"></span>
               </a>
