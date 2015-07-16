@@ -26,8 +26,6 @@ rightAnswer = function(e) {
     $($(e.target).find('input')[1]).val('');
     modify_corr(1);
     $.getScript("/games/" + gameId + "/increase_correct_ans");
-//    Game.last.increment!(:correct_ans)
-//    ('<= j Game.increment_counter(:correct_ans, Game.last.id)%>')
 };
 
 modify_corr = function(val) {
@@ -38,8 +36,6 @@ modify_corr = function(val) {
         new_corr = 0;
     }
     document.getElementById('corr').innerHTML = new_corr;
-//    gon.correct = new_corr;
-//    alert(gon.correct);
 };
 
 $('#give_up').click(function(event) {
@@ -54,5 +50,9 @@ $('#give_up').click(function(event) {
 //$('#pause').click(function(event) {});
 ////
 
-
-//debugger
+if($('#corr').text() === $('#total').text()){
+    $clock.countdown('stop');
+    $('#guess').hide();
+    $('#give_up').hide();
+    alert("You got them all right! Way to go slugger!")
+}

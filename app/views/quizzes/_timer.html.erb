@@ -27,8 +27,6 @@
       }
   </style>
 
-<body>
-
     <div class="container timer">
       <div class="starter-template col-md-offset-6">
         <h1>Time Remaining</h1>
@@ -60,12 +58,13 @@
         <!--</div>-->
         </div>
 
-        <h4><span id="corr">0</span> / <%= @quiz.answers.count %> correct</h4><br><br>
-        <button class="btn-danger" id="give_up" href="#">Give up?</button>
+        <h4><span id="corr">0</span> / <span id="total"><%= @quiz.answers.count %></span> correct</h4><br><br>
+        <button class="btn-danger" id="give_up">Give up?</button>
 
       </div>
     </div>
-</div>
+  </div>
+
 
 <script type="text/javascript">
     // Turn on Bootstrap
@@ -79,19 +78,19 @@
 //    $clock.countdown(getQuizTimer(), function(event) {
 //        $(this).html(event.strftime('%M:%S'));
 //    });
-    $('#btn-reset').click(function() {
-        $clock.countdown(getQuizTimer());
-    });
-
-    $('#btn-pause').click(function() {
-        $clock.countdown('pause');
-//        Pop-up or redirects to new page when paused so user can't see page
-//        This isn't pausing it completely. Hidden time is still counting down even when paused. It does that on the sample site too
-    });
-
-    $('#btn-resume').click(function() {
-        $clock.countdown('resume');
-    });
+//    $('#btn-reset').click(function() {
+//        $clock.countdown(getQuizTimer());
+//    });
+//
+//    $('#btn-pause').click(function() {
+//        $clock.countdown('pause');
+////        Pop-up or redirects to new page when paused so user can't see page
+////        This isn't pausing it completely. Hidden time is still counting down even when paused. It does that on the sample site too
+//    });
+//
+//    $('#btn-resume').click(function() {
+//        $clock.countdown('resume');
+//    });
 
 </script>
 
