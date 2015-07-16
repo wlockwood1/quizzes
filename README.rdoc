@@ -7,6 +7,6 @@ MAJOR TO DO:
     -Prettier user interface
 
 MINOR BUGS:
-    -Categories dropdown doesn't work after you start a game, even if you go back to main page. You have to refresh page for it to work again.
+    -Categories dropdown in nav bar doesn't work after you start a game, even if you go back to main page. You have to refresh page for it to work again.
     -Rare, but sometimes timer doesn't load when user starts game
     -Nothing happens the first time a user tries to submit a guess on a game. Works fine after that
