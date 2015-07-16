@@ -24,8 +24,8 @@ rightAnswer = function(e) {
     $(e).addClass('answer_solution_correct');
     $(e).removeClass('answer_solution');
     $($(e.target).find('input')[1]).val('');
-//    $.getScript("/games/increase_correct_ans");
     modify_corr(1);
+    $.getScript("/games/" + gameId + "/increase_correct_ans");
 //    Game.last.increment!(:correct_ans)
 //    ('<= j Game.increment_counter(:correct_ans, Game.last.id)%>')
 };
@@ -38,6 +38,8 @@ modify_corr = function(val) {
         new_corr = 0;
     }
     document.getElementById('corr').innerHTML = new_corr;
+//    gon.correct = new_corr;
+//    alert(gon.correct);
 };
 
 $('#give_up').click(function(event) {

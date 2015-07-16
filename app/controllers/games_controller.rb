@@ -17,12 +17,10 @@ class GamesController < ApplicationController
     end
   end
 
-  def correct_ans
-    @game = Game.last
-
-    respond_to do |format|
-      format.js {}
-    end
+  def increase_correct_ans
+    game = Game.find params[:id]
+    game.increase_correct_ans
+    # render js: "console.log('Increased #{game.inspect}')"
   end
 
   private
@@ -33,6 +31,6 @@ class GamesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def game_params
-    params.require(:game).permit(:quiz_id, :correct_ans, :total_answ, :game)
+    params.require(:game).permit(:quiz_id, :correct_ans, :total_ans, :game)
   end
 end

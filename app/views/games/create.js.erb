@@ -1,5 +1,5 @@
-
-    $('#live_game').show();
+var gameId = <%= @game.id %>
+$('#live_game').show();
     $('#start_quiz').hide();
     $('options').hide();
     $('#guess').find('.form-control').focus();
