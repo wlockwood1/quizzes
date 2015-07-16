@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :quizzes do
     resources :answers
+    #   get :increase_correct_ans, on: :collection
+    # end
     resources :games, only: [:new, :create]
   end
   resources :categories

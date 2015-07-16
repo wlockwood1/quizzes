@@ -12,6 +12,7 @@ class QuizzesController < ApplicationController
   def show
     @quiz = Quiz.find(params[:id])
     @answers = @quiz.answers.all
+    @game = Game.last
     render 'show'
   end
 

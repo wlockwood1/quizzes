@@ -3,8 +3,9 @@
 <p>Your #1 site for any and all quizzes!</p>
 
 <%= link_to 'Categories', categories_path %><br>
-<%= link_to 'Quizzes', quizzes_path %>
+<%= link_to 'Quizzes', quizzes_path %><br>
 
+<%= link_to 'Play Random Quiz', quiz_path(@quiz) %>
 
-<!--if user_signed in-->
-    <!--Welcome back user! Show user's most recent games played and scores-->
+ <!--if user_signed in-->
+ <!--Welcome back user! Show user's most recent games played and scores-->

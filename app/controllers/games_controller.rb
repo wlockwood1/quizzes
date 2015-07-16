@@ -15,7 +15,14 @@ class GamesController < ApplicationController
       format.js {}
       # format.json { render :show, status: :ok, location: @game }
     end
+  end
 
+  def correct_ans
+    @game = Game.last
+
+    respond_to do |format|
+      format.js {}
+    end
   end
 
   private
@@ -26,6 +33,6 @@ class GamesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def game_params
-    params.require(:game).permit(:quiz_id, :correct_ans, :game)
+    params.require(:game).permit(:quiz_id, :correct_ans, :total_answ, :game)
   end
 end

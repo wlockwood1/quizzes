@@ -3,3 +3,54 @@
     //< Game.increment_counter(:correct_answers, @game OR Game.last) %>;
 //}
 
+var corr = 0;
+$('#guess').submit(function(e) {
+    e.preventDefault();
+    checkAnswer(e);
+    $($(e.target).find('input')[1]).val('');
+});
+
+checkAnswer = function(e) {
+    var txt;
+    e.preventDefault();
+    txt = $($(e.target).find('input')[1]).val();
+    return $('.answer_solution').each(function(i, answ) {
+        if (txt.toUpperCase().indexOf($(answ).text().toUpperCase()) !== -1) {
+            return rightAnswer(answ);
+        }
+    });
+};
+rightAnswer = function(e) {
+    $(e).addClass('answer_solution_correct');
+    $(e).removeClass('answer_solution');
+    $($(e.target).find('input')[1]).val('');
+//    $.getScript("/games/increase_correct_ans");
+    modify_corr(1);
+//    Game.last.increment!(:correct_ans)
+//    ('<= j Game.increment_counter(:correct_ans, Game.last.id)%>')
+};
+
+modify_corr = function(val) {
+    var corr, new_corr;
+    corr = document.getElementById('corr').innerHTML;
+    new_corr = parseInt(corr, 10) + val;
+    if (new_corr < 0) {
+        new_corr = 0;
+    }
+    document.getElementById('corr').innerHTML = new_corr;
+};
+
+$('#give_up').click(function(event) {
+    event.preventDefault();
+    $('.answer_solution').show();
+    $('#guess').hide();
+    $('#give_up').hide();
+    $clock.countdown('stop');
+});
+//$('#start').click(function(event) {});
+//$('#play').click(function(event) {});
+//$('#pause').click(function(event) {});
+////
+
+
+//debugger

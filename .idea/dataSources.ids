@@ -1615,6 +1615,7 @@
       <column name="updated_at" sqlType="timestamp" precision="29" scale="6" nullable="false" jdbcType="93"/>
       <column name="quiz_id" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="correct_ans" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="total_ans" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <primary-key name="games_pkey" columns="id"/>
     </table>
     <table name="games_id_seq" schema="public" catalog="quizzes_development" type="SEQUENCE">
