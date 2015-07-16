@@ -1,7 +1,11 @@
 This is a quiz game loosely modeled after the website Sporcle. Users can create, find and play quiz games in which they enter as many correct answers as possible in the alloted time for the quiz.
 
-TO DO:
+MAJOR TO DO:
+    -Deploy heroku site
     -Install devise and allow users to sign up. App will save all games they've played
-    -Allow users to create profile for app. Users will be able to save scores and see their most recently played games.
+    -Rspec tests
     -Prettier user interface
-    -Pause button for game, which will pause timer and hide quiz until user resumes game
+
+MINOR BUGS:
+    -Rare, but sometimes timer doesn't load when user starts game
+    -Nothing happens the first time a user tries to submit a guess on a game. Works fine after that
