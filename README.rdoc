@@ -1,8 +1,7 @@
 This is a quiz game loosely modeled after the website Sporcle. Users can create, find and play quiz games in which they enter as many correct answers as possible in the alloted time for the quiz.
 
 TO DO:
-   -'Start game' button should create Game.new
-   - Correct answers will work with Ruby, currently working with Javascript counter. This will be saved as part of each         game instance
+    -Install devise and allow users to sign up. App will save all games they've played
     -Allow users to create profile for app. Users will be able to save scores and see their most recently played games.
     -Prettier user interface
     -Pause button for game, which will pause timer and hide quiz until user resumes game
