@@ -1,32 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="col-md-8">
 
-<h1>Listing Quizzes</h1>
+    <h1>Listing Quizzes</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Quiz Name</th>
-      <th>Quiz Category</th>
-      <th>Number of Plays</th>
-    </tr>
-  </thead>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Quiz Name</th>
+          <th>Quiz Category</th>
+          <th>Number of Plays</th>
+          <th>Quiz Creator</th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @quizzes.each do |quiz| %>
-      <tr>
-        <td><%= quiz.name %></td>
-        <td><%= quiz.category.name %></td>
-        <td><%= quiz.games.count %></td>
-        <td><%= link_to 'Play!', quiz %></td>
-        <td><%= link_to 'Edit', edit_quiz_path(quiz) %></td>
-        <td><%= link_to 'Destroy', quiz, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @quizzes.each do |quiz| %>
+          <tr>
+            <td><%= quiz.name %></td>
+            <td><%= quiz.category.name %></td>
+            <td><%= quiz.games.count %></td>
+            <% if quiz.user %>
+                <td><%= quiz.user.username %></td>
+            <% else %>
+                <td>Unregistered user</td>
+            <% end %>
+            <td><%= link_to 'Play!', quiz %></td>
+            <% if user_signed_in? && current_user == quiz.user %>
+                <td><%= link_to 'Edit', edit_quiz_path(quiz) %></td>
+                <td><%= link_to 'Destroy', quiz, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<br>
+    <br>
 
-<%= link_to 'New Quiz', new_quiz_path %><br>
-<%= link_to 'Main Page', root_path %>
+    <%= link_to 'New Quiz', new_quiz_path %><br>
+    <%= link_to 'Main Page', root_path %>
 
+</div>

@@ -7,6 +7,6 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: {case_sensitive: false}
   validates :password, presence: true, on: create
 
-  has_many :games
+  has_many :games, dependent: :destroy
   has_many :quizzes
 end
