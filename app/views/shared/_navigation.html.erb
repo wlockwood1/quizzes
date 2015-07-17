@@ -17,7 +17,6 @@
         <li class="search"><%= render 'shared/search' %></li>
         <% if user_signed_in? %>
             <li><%= link_to 'Play Random Quiz', quiz_path(Quiz.all.shuffle) %></li>
-            <li class="new_category"><%= link_to 'New Category', new_category_path %></li>
             <li class="new_quiz"><%= link_to 'New Quiz', new_quiz_path %></li>
             <li role="presentation" class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -58,6 +57,8 @@
                 <% Category.all.each do |category| %>
                     <li class="category"><%= link_to category.name, category %></li>
                 <% end %>
+                <li role="separator" class="divider"></li>
+                <li class="new_category"><%= link_to 'New Category', new_category_path %></li>
               </ul>
             </li>
         </li>
