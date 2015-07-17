@@ -32,7 +32,22 @@
             </li>
             </li>
         <% else %>
-            <li class="log_in"><%= link_to "Log In", new_user_session_path %></li>
+            <li role="presentation" class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                Log In<span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <!-- Need to fix. Stops working after game plays unless you refresh page-->
+                <li><%= render 'shared/login' %>
+              </ul>
+            <li role="presentation" class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                Sign Up!<span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <!-- Need to fix. Stops working after game plays unless you refresh page-->
+                <li><%= render 'shared/signup' %>
+              </ul>
         <% end %>
         <li role="presentation" class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
