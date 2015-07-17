@@ -1,0 +1,28 @@
+<div class="high_scores col-md-offset-1">
+  <!--<div class="col-md-offset-7">-->
+    <h4 class="text-center">High Scores for <%= @quiz.name %></h4>
+
+    <table class="table table-condensed">
+      <thead>
+      <tr>
+        <th>Date Played</th>
+        <th>Username</th>
+        <th>Score</th>
+      </tr>
+      </thead>
+        <tbody>
+        <tr>
+          <% @games.each do |game| %>
+              <td><%= game.created_at.to_date.to_formatted_s(:short_ordinal) if game.created_at %></td>
+              <% if game.user_id %>
+                <td><%= game.user.username %></td>
+              <% else %>
+                  <td>Unregistered user</td>
+              <% end %>
+              <td><%= game.correct_ans %>/<%= game.total_ans %><br></td>
+        </tr>
+          <% end %>
+        </tbody>
+    </table>
+  <!--</div>-->
+</div>

@@ -1,18 +1,17 @@
 var gameId = <%= @game.id %>
-        $clock.countdown(getQuizTimer(), function(event) {
-            $('#clock').show();
-            return $(this).html(event.strftime('%M:%S'));
-        }).on('finish.countdown', function() {
-            $('.answer_solution').show();
-            $('#guess').hide();
-            return $('#give_up').hide();
-        });
     $('#live_game').show();
     $('#start_quiz').hide();
     $('options').hide();
     $('#guess').find('.form-control').focus();
     $('.timer').show();
     $('.answer_count').show();
-
+    $clock.countdown(getQuizTimer(), function(event) {
+        $('#clock').show();
+        return $(this).html(event.strftime('%M:%S'));
+    }).on('finish.countdown', function() {
+        $('.answer_solution').show();
+        $('#guess').hide();
+        return $('#give_up').hide();
+    });
 
 

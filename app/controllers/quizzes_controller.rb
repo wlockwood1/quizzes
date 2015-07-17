@@ -13,6 +13,7 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.find(params[:id])
     @answers = @quiz.answers.all
     @correct = Game.last.correct_ans
+    @games = @quiz.games.order('correct_ans DESC').limit(5)
     render 'show'
   end
 
