@@ -1,9 +1,8 @@
 var gameId = <%= @game.id %>
-$('#live_game').show();
+    $('#live_game').show();
     $('#start_quiz').hide();
     $('options').hide();
     $('#guess').find('.form-control').focus();
-//    $('#timer).html("<= escape_javascript(render 'timer') %>")
     $('.timer').show();
     $('.answer_count').show();
     $clock.countdown(getQuizTimer(), function(event) {

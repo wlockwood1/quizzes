@@ -1,10 +1,15 @@
 class QuizzesController < ApplicationController
+  before_filter :authenticate_user!, except: [:index, :show]
   before_action :set_quiz, only: [:show, :edit, :update, :destroy]
 
   # GET /quizzes
   # GET /quizzes.json
   def index
-    @quizzes = Quiz.all
+    if params[:search]
+      @quizzes = Quiz.search(params[:search])
+    else
+      @quizzes = Quiz.all
+    end
   end
 
   # GET /quizzes/1
@@ -13,6 +18,7 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.find(params[:id])
     @answers = @quiz.answers.all
     @correct = Game.last.correct_ans
+    @games = @quiz.games.order('correct_ans DESC').limit(5)
     render 'show'
   end
 

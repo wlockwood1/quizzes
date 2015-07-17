@@ -1,0 +1,6 @@
+<%= form_tag quizzes_path, :method => 'get', :id => 'quiz_search' do %>
+    <p class="searcher">
+      <%= text_field_tag :search, params[:search], placeholder: "Search quizzes" %>
+      <%= submit_tag "Go!", :name => nil %>
+    </p>
+<% end %>

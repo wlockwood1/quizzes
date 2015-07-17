@@ -1,32 +1,15 @@
-<p id="notice"><%= notice %></p>
+<div class="col-md-8">
 
-<h1>Listing Quizzes</h1>
+    <h1>Listing Quizzes</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Quiz Name</th>
-      <th>Quiz Category</th>
-      <th>Number of Plays</th>
-    </tr>
-  </thead>
+     <%= render 'shared/quiz_header' %>
 
-  <tbody>
-    <% @quizzes.each do |quiz| %>
-      <tr>
-        <td><%= quiz.name %></td>
-        <td><%= quiz.category.name %></td>
-        <td><%= quiz.games.count %></td>
-        <td><%= link_to 'Play!', quiz %></td>
-        <td><%= link_to 'Edit', edit_quiz_path(quiz) %></td>
-        <td><%= link_to 'Destroy', quiz, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <%= render @quizzes %>
 
-<br>
+    </table>
 
-<%= link_to 'New Quiz', new_quiz_path %><br>
-<%= link_to 'Main Page', root_path %>
+    <br>
+    <%= link_to 'New Quiz', new_quiz_path %><br>
+    <%= link_to 'Main Page', root_path %>
 
+</div>

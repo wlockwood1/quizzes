@@ -3,12 +3,12 @@
    <!--g.user = quiz.user -->
 <%=  form_for [@quiz, g], remote: true  do |f| %>
     <div class="form-group">
-      <%= f.hidden_field :quiz_id, value: @quiz.id %><br/>
+      <% if user_signed_in? %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+      <% end %>
+      <%= f.hidden_field :quiz_id, value: @quiz.id %>
       <%= f.hidden_field :correct_ans, value: 0 %>
       <%= f.hidden_field :total_ans, value: @quiz.answers.count %>
-      <!--< if user_signed_in? %>-->
-          <!--<= f.hidden_field :user_id, value: current_user.id %><br/>-->
-      <!--< end %>-->
       <%= f.submit 'Start game!',class: "new-comment btn btn-primary", id: "start_quiz" %>
     </div>
 <% end %>

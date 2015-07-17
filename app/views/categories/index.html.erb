@@ -1,26 +1,15 @@
 <p id="notice"><%= notice %></p>
+<div class="col-md-6">
+    <h1>Kwiz Categories</h1>
 
-<h1>Kwiz Categories</h1>
+        <% @categories.each do |category| %>
+            <h4><%= link_to category.name, category %></h4>
+            <!--<td><= link_to 'Edit', edit_category_path(category) %></td>-->
+            <!--<td><= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+        <% end %>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Categories</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.name %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<!--Have to fix so these are below table instead of next to it-->
-<%= link_to 'New Category', new_category_path %><br>
-<%= link_to 'Main Page', root_path %>
+  <p>
+    <%= link_to 'Create New Category', new_category_path %><br>
+    <%= link_to 'Main Page', root_path %>
+  </p>
+</div>

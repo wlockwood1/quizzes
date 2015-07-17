@@ -1616,6 +1616,7 @@
       <column name="quiz_id" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="correct_ans" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="total_ans" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="user_id" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <primary-key name="games_pkey" columns="id"/>
     </table>
     <table name="games_id_seq" schema="public" catalog="quizzes_development" type="SEQUENCE">
@@ -1638,6 +1639,7 @@
       <column name="updated_at" sqlType="timestamp" precision="29" scale="6" nullable="false" jdbcType="93"/>
       <column name="description" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
       <column name="time_limit" sqlType="numeric" precision="131089" scale="0" nullable="true" jdbcType="2"/>
+      <column name="user_id" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <primary-key name="quizzes_pkey" columns="id"/>
     </table>
     <table name="quizzes_id_seq" schema="public" catalog="quizzes_development" type="SEQUENCE">
@@ -1660,7 +1662,20 @@
       <column name="id" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgndXNlcnNfaWRfc2VxJzo6cmVnY2xhc3Mp" autoIncrement="true"/>
       <column name="created_at" sqlType="timestamp" precision="29" scale="6" nullable="false" jdbcType="93"/>
       <column name="updated_at" sqlType="timestamp" precision="29" scale="6" nullable="false" jdbcType="93"/>
+      <column name="email" sqlType="varchar" precision="2147483647" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="encrypted_password" sqlType="varchar" precision="2147483647" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="reset_password_token" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="reset_password_sent_at" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="remember_created_at" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="sign_in_count" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="current_sign_in_at" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="last_sign_in_at" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="current_sign_in_ip" sqlType="inet" precision="2147483647" scale="0" nullable="true" jdbcType="1111"/>
+      <column name="last_sign_in_ip" sqlType="inet" precision="2147483647" scale="0" nullable="true" jdbcType="1111"/>
+      <column name="username" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="users_pkey" columns="id"/>
+      <index name="index_users_on_email" unique="true" columns="email"/>
+      <index name="index_users_on_reset_password_token" unique="true" columns="reset_password_token"/>
     </table>
     <table name="users_id_seq" schema="public" catalog="quizzes_development" type="SEQUENCE">
       <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
