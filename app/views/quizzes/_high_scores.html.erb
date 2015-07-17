@@ -13,7 +13,7 @@
         <tbody>
         <tr>
           <% @games.each do |game| %>
-              <td><%= game.created_at.to_date.to_formatted_s(:short_ordinal) if game.created_at %></td>
+              <td><%= game.created_at.strftime("%B %d, %Y") %></td>
               <% if game.user_id %>
                 <td><%= link_to game.user.username, user_path(game.user) %></td>
               <% else %>

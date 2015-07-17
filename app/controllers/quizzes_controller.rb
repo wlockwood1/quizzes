@@ -5,7 +5,11 @@ class QuizzesController < ApplicationController
   # GET /quizzes
   # GET /quizzes.json
   def index
-    @quizzes = Quiz.all
+    if params[:search]
+      @quizzes = Quiz.search(params[:search])
+    else
+      @quizzes = Quiz.all
+    end
   end
 
   # GET /quizzes/1

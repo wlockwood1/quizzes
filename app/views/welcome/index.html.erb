@@ -3,31 +3,30 @@
 
     <h3>Your #1 site for any and all quizzes!</h3>
 
-    <%= link_to 'Categories', categories_path %><br>
-    <%= link_to 'Quizzes', quizzes_path %><br>
-    <%= link_to 'Play Random Quiz', quiz_path(@quiz) %><br>
+    <!--<= link_to 'Play Random Quiz', quiz_path(@quiz) %><br>-->
+  <% if user_signed_in? %>
+      <p>Welcome back <strong><%= current_user.username %></strong>!</p>
+      <h3>Your Recently Played Games</h3>
+      <table class="table table-hover table-condensed">
+        <thead>
+        <tr>
+          <th>Date Played</th>
+          <th>Quiz Name</th>
+          <th>Score</th>
+        </tr>
+        </thead>
+        <%= render @games %>
+      </table>
+  <% else %>
+      <%= link_to "Sign up", new_user_registration_path %> |
+      <%= link_to "Log In", new_user_session_path %>
+  <% end %>
 
     <br><br><br>
 
-    <% if user_signed_in? %>
-        Welcome back <strong><%= current_user.username %>!</strong>.
-        <%= link_to 'Edit profile', edit_user_registration_path %> |
-        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-          <h3>Your Recently Played Games</h3>
-          <table class="table table-hover table-condensed">
-            <thead>
-            <tr>
-              <th>Date Played</th>
-              <th>Quiz Name</th>
-              <th>Score</th>
-            </tr>
-            </thead>
-            <%= render @games %>
-          </table>
-    <% else %>
-        <%= link_to "Sign up", new_user_registration_path %> |
-        <%= link_to "Log In", new_user_session_path %>
-    <% end %>
+  <%= link_to 'Categories', categories_path %><br>
+  <%= link_to 'Quizzes', quizzes_path %><br>
+
 </div>
 
 

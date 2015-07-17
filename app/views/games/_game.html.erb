@@ -1,6 +1,6 @@
 <tbody>
     <tr>
-      <td><%= game.created_at.to_date.to_formatted_s(:short_ordinal) if game.created_at %></td>
+      <td><%= game.created_at.to_date.strftime("%B %d, %Y") if game.created_at %></td>
       <td><%= link_to game.quiz.name, quiz_path(game.quiz) %></td>
       <td><%= game.correct_ans %>/<%= game.total_ans %><br></td>
     </tr>

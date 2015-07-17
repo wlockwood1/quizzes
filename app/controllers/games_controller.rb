@@ -6,6 +6,7 @@ class GamesController < ApplicationController
   # end
 
   def create
+  #   @user = User.find params[:user_id]
     @quiz = Quiz.find params[:quiz_id]
     @game = @quiz.games.create(game_params)
     @game.save!

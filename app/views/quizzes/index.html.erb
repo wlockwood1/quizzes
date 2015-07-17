@@ -2,39 +2,13 @@
 
     <h1>Listing Quizzes</h1>
 
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Quiz Name</th>
-          <th>Quiz Category</th>
-          <th>Number of Plays</th>
-          <th>Quiz Creator</th>
-        </tr>
-      </thead>
+     <%= render 'shared/quiz_header' %>
 
-      <tbody>
-        <% @quizzes.each do |quiz| %>
-          <tr>
-            <td><%= quiz.name %></td>
-            <td><%= quiz.category.name %></td>
-            <td><%= quiz.games.count %></td>
-            <% if quiz.user %>
-                <td><%= quiz.user.username %></td>
-            <% else %>
-                <td>Unregistered user</td>
-            <% end %>
-            <td><%= link_to 'Play!', quiz %></td>
-            <% if user_signed_in? && current_user == quiz.user %>
-                <td><%= link_to 'Edit', edit_quiz_path(quiz) %></td>
-                <td><%= link_to 'Destroy', quiz, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            <% end %>
-          </tr>
-        <% end %>
-      </tbody>
+      <%= render @quizzes %>
+
     </table>
 
     <br>
-
     <%= link_to 'New Quiz', new_quiz_path %><br>
     <%= link_to 'Main Page', root_path %>
 
