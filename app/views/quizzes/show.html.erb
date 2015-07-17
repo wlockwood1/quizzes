@@ -41,11 +41,13 @@
 
             </table><br><br>
 
-          <div class="options">
-            <%= link_to 'Add Answers', new_quiz_answer_path(@quiz.id) %> |
-            <%= link_to 'Edit', edit_quiz_path(@quiz) %> |
-            <%= link_to 'Back', quizzes_path %><br><br>
-          </div>
+          <% if current_user == @quiz.user_id %>
+              <div class="options">
+                <%= link_to 'Add Answers', new_quiz_answer_path(@quiz.id) %> |
+                <%= link_to 'Edit', edit_quiz_path(@quiz) %> |
+                <%= link_to 'Back', quizzes_path %><br><br>
+              </div>
+          <% end %>
 
         </div>
     </div>

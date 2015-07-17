@@ -1,12 +1,24 @@
 <h1>Welcome to Kwiz</h1>
 
-<p>Your #1 site for any and all quizzes!</p>
+<h3>Your #1 site for any and all quizzes!</h3>
+
+<% if user_signed_in? %>
+    Logged in as <strong><%= current_user.email %></strong>.
+    <%= link_to 'Edit profile', edit_user_registration_path %> |
+    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+<% else %>
+    <%= link_to "Sign up", new_user_registration_path %> |
+    <%= link_to "Login", new_user_session_path %>
+<% end %>
+
+<br><br><br>
 
 <%= link_to 'Categories', categories_path %><br>
 <%= link_to 'Quizzes', quizzes_path %><br>
+<%= link_to 'Play Random Quiz', quiz_path(@quiz) %><br>
 
-<%= link_to 'Play Random Quiz', quiz_path(@quiz) %>
 
- <!--if user_signed in-->
+
+<!--if user_signed in-->
  <!--Welcome back user! Show user's most recent games played and scores-->
 <!--Feed with recent games added-->

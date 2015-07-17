@@ -1,7 +1,8 @@
 <div class="form-group" id="guess">
     <%= form_tag quiz_path(@quiz), :method => 'get', remote: true, :id => 'guess' do %>
         <p>
-          <%= text_field_tag :guess, params[:search], class: "form-control", placeholder: "Guess here" %><br>
+          <!-- Added autocomplete off tag-->
+          <%= text_field_tag :guess, params[:search], class: 'form-control', autocomplete: "off", placeholder: 'Guess here' %><br>
           <%= submit_tag "Guess answer" %>
         </p>
     <% end %>
