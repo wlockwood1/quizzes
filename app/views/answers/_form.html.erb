@@ -14,15 +14,12 @@
     <div class="fields">
       <%= f.hidden_field :quiz_id %>
       <%= f.label :hint %>
-      <%= f.text_field :hint %><br><br>
+      <%= f.text_field :hint, class: "form-control col-md-5" %><br><br>
       <%= f.label :solution %>
-      <%= f.text_field :solution %><br><br>
+      <%= f.text_field :solution, class: "form-control" %><br><br>
+      <%= f.submit %><br><br>
     </div>
 
     <!-- Sub-categories for answers eg. guess starters for every team, sub-category for each team-->
     <!-- Click on create answers, should render partial for hint/solution form. Enter one, click "Add answer", and the hint/solution will show up on the page, and you will still have option to add hints/solutions. Once all are added, hit submit-->
-
-    <div class="actions">
-      <%= f.submit %>
-    </div>
 <% end %>
