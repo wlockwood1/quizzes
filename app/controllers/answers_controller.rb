@@ -1,4 +1,4 @@
-class AnswersController < ApplicationController
+  class AnswersController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
 
@@ -36,7 +36,7 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to new_quiz_answer_path(@answer.quiz), notice: 'Answer was successfully created.' }
+        format.html { redirect_to new_quiz_answer_path(@answer.quiz) }
         format.json { render :show, status: :created, location: @answer }
       else
         format.html { render :new }
@@ -51,7 +51,7 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
     respond_to do |format|
       if @answer.update(answer_params)
-        format.html { redirect_to edit_quiz_path(@answer.quiz), notice: 'Answer was successfully updated.' }
+        format.html { redirect_to edit_quiz_path(@answer.quiz) }
         format.json { render :show, status: :ok, location: @answer }
       else
         format.html { render :edit }
@@ -65,7 +65,7 @@ class AnswersController < ApplicationController
   def destroy
     @answer.destroy
     respond_to do |format|
-      format.html { redirect_to edit_quiz_path(@quiz), notice: 'Answer was successfully destroyed.' }
+      format.html { redirect_to edit_quiz_path(@quiz)}
       format.json { head :no_content }
       format.js {}
     end

@@ -1,5 +1,5 @@
 class Game < ActiveRecord::Base
-  belongs_to :quiz
+  belongs_to :quiz, :counter_cache => true
   belongs_to :user
 
   def increase_correct_ans

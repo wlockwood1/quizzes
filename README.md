@@ -3,9 +3,9 @@ This is a quiz game loosely modeled after the website Sporcle. Users can create,
 Heroku site: https://infinite-everglades-9127.herokuapp.com
 
 MAJOR TO DO:
-    -Rspec tests
-    -Prettier user interface
+    Rspec tests
+    Prettier user interface
 
 MINOR BUGS:
-    -Rare, but sometimes timer doesn't load when user starts game
-    -Nothing happens the first time a user tries to submit a guess on a game. Works fine after that
+    Rare, but sometimes timer doesn't load when user starts game
+    Nothing happens the first time a user tries to submit a guess on a game. Works fine after that

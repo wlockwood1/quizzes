@@ -17,6 +17,11 @@
         </thead>
         <%= render @games %>
       </table>
+      <!--Show most popular quizzes, order by number of times a quiz has been played-->
+      <h3>Kwiz's Most Popular Games</h3>
+      <%= render 'shared/quiz_header' %>
+        <%= render @quizzes %>
+      </table>
   <% else %>
       <%= link_to "Sign up", new_user_registration_path %> |
       <%= link_to "Log In", new_user_session_path %>
