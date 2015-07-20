@@ -12,6 +12,7 @@
   <% end %>
 
     <div class="fields form-group">
+      <%= f.label :user_id, value: current_user %>
       <%= f.label :name %><br/>
       <%= f.text_field :name %><br><br>
       <%= f.label :description, "Quiz Description" %>
