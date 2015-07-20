@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :username, presence: true, uniqueness: {case_sensitive: false}
-  validates :password, presence: true, on: create
+  validates :password, presence: true, on: :create
 
   has_many :games, dependent: :destroy
   has_many :quizzes
