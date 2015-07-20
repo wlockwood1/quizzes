@@ -12,7 +12,7 @@
   <% end %>
 
     <div class="fields form-group">
-      <%= f.label :user_id, value: current_user %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.label :name %><br/>
       <%= f.text_field :name %><br><br>
       <%= f.label :description, "Quiz Description" %>
@@ -22,9 +22,6 @@
       <%= f.label :time_limit, "Please enter the time limit for this quiz (in minutes). Ex: 5.5 would be 5:30" %>
       <%= f.text_field :time_limit %><br><br>
     </div>
-
-
-    <!-- Click on create answers, should render partial for hint/solution form. Enter one, click "Add answer", and the hint/solution will show up on the page, and you will still have option to add hints/solutions. Once all are added, hit submit-->
 
   <div class="actions">
     <%= f.submit %>

@@ -2,16 +2,16 @@
     <tr>
       <td><%= quiz.created_at.to_date.strftime("%B %d, %Y") %></td>
       <td><%= link_to quiz.name, quiz %></td>
-      <td><%= quiz.category.name %></td>
+      <td><%= link_to quiz.category.name, quiz.category %></td>
       <td><%= quiz.games.count %></td>
       <% if quiz.user %>
-          <td><%= quiz.user.username %></td>
+          <td><%=link_to quiz.user.username, user_path(quiz.user) %></td>
       <% else %>
           <td>Unregistered user</td>
       <% end %>
       <% if user_signed_in? && current_user == quiz.user %>
           <td><%= link_to 'Edit', edit_quiz_path(quiz) %></td>
-          <td><%= link_to 'Destroy', quiz, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Delete Quiz', quiz, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
     </tr>
 </tbody>

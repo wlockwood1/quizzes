@@ -8,5 +8,5 @@ class User < ActiveRecord::Base
   validates :password, presence: true, on: :create
 
   has_many :games, dependent: :destroy
-  has_many :quizzes
+  has_many :quizzes, dependent: :destroy
 end

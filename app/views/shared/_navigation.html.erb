@@ -15,15 +15,16 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li class="search"><%= render 'shared/search' %></li>
+        <% if Quiz.count != 0 %>
+            <li><%= link_to 'Play Random Quiz', quiz_path(Quiz.all.shuffle) %></li>
+        <% end %>
         <% if user_signed_in? %>
-            <!--<li><= link_to 'Play Random Quiz', quiz_path(Quiz.all.shuffle) %></li>-->
             <li class="new_quiz"><%= link_to 'New Quiz', new_quiz_path %></li>
             <li role="presentation" class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                 <%= current_user.username %><span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                <!-- Need to fix. Stops working after game plays unless you refresh page-->
                     <li><%= link_to "Profile Page", user_path(current_user) %></li>
                     <li><%= link_to "Account Settings", edit_user_registration_path %></li>
                     <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
@@ -36,7 +37,6 @@
                 Log In<span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                <!-- Need to fix. Stops working after game plays unless you refresh page-->
                 <li><%= render 'shared/login' %>
               </ul>
             <li role="presentation" class="dropdown">
