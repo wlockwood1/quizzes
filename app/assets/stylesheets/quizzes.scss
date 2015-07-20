@@ -24,15 +24,22 @@ input {
 #btn-pause {
   display: none;
 }
-.panel {
-  width: 400px;
-  margin-left: auto;
-  margin-right: auto;
-
-}
 #btn-reset {
   margin-right: 10px;
 }
 #clock {
   margin-bottom: 0;
 }
+
+.timer {
+  display: none;
+}
+
+div#clock {
+  font-weight: bold;
+}
+
+//.timer .starter-template {
+//  /*padding: 40px 15px;*/
+//  text-align: center;
+//}
