@@ -1,7 +1,8 @@
 This is a quiz game loosely modeled after the website Sporcle. Users can create, find and play quiz games in which they enter as many correct answers as possible in the alloted time for the quiz.
 
+Heroku site: https://infinite-everglades-9127.herokuapp.com
+
 MAJOR TO DO:
-    -Deploy heroku site
     -Rspec tests
     -Prettier user interface
 
