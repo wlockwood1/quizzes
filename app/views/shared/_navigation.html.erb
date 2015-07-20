@@ -44,7 +44,6 @@
                 Sign Up!<span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                <!-- Need to fix. Stops working after game plays unless you refresh page-->
                 <li><%= render 'shared/signup' %>
               </ul>
         <% end %>
@@ -53,7 +52,6 @@
                 Categories<span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                <!-- Need to fix. Stops working after game plays unless you refresh page-->
                 <% Category.all.each do |category| %>
                     <li class="category"><%= link_to category.name, category %></li>
                 <% end %>
