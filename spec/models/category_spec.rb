@@ -5,9 +5,10 @@ RSpec.describe Category, type: :model do
     @category = FactoryGirl.create(:category)
   end
 
+ context 'create category' do
   it 'is invalid without a name' do
     @category.name = nil
     expect {@category.save!}.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Name can't be blank")
   end
-
+ end
 end

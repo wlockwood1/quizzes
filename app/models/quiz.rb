@@ -17,9 +17,8 @@ class Quiz < ActiveRecord::Base
       all
     end
   end
-
-  def play_count
-    self.games.count
-  end
-
+  #
+  # def play_count
+  #   self.games.count
+  # end
 end

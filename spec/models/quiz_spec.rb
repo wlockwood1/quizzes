@@ -31,7 +31,6 @@ RSpec.describe Quiz, type: :model do
         @quiz.time_limit = -1
         expect {@quiz.save!}.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Time limit must be greater than 0")
       end
-
     end
 
     it 'belongs to a user' do

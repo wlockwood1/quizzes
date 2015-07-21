@@ -1,13 +1,11 @@
-<div class="form-group" id="guess">
+<div class="form-group">
     <%= form_tag quiz_path(@quiz), :method => 'get', remote: true, :id => 'guess' do %>
         <p>
-          <!-- Added autocomplete off tag-->
           <%= text_field_tag :guess, params[:search], class: 'form-control', autocomplete: "off", placeholder: 'Guess here' %><br>
           <%= submit_tag "Guess answer" %>
         </p>
     <% end %>
 </div>
 
-<!--May have to split strings for names or cities/mascots, check if guess == solution_first || solution_last-->
 
 
