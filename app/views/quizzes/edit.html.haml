@@ -17,9 +17,10 @@
             %tr.answers{:id => "answer_#{answer.id}"}
               %td= answer.hint
               %td= answer.solution
-              %td= link_to 'Edit Details', [:edit, @quiz, answer]
+              %td= link_to 'Edit Details', [:edit, @quiz, answer], remote: true
               %td= link_to 'Remove Answer', [@quiz, answer], method: :delete, data: { confirm: 'Are you sure?' }, remote: true
         %br
           %br
   .col-md-offset-1.col-md-3#new_answer
+  .col-md-offset-1.col-md-3#edit_answer
     -#= render 'answers/form'

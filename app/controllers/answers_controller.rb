@@ -66,11 +66,11 @@
   # DELETE /answers/1.json
   def destroy
     @answer.destroy
-    respond_to do |format|
-      format.html { redirect_to edit_quiz_path(@quiz)}
-      format.json { head :no_content }
-      format.js {}
-    end
+    # respond_to do |format|
+    #   format.html { redirect_to edit_quiz_path(@quiz)}
+    #   format.json { head :no_content }
+    #   format.js {}
+    # end
   end
 
   private
