@@ -1,35 +1,21 @@
-<!--Include the jQuery library (1.4+) in the head section of your page. Download and include the jQuery Countdown CSS and JavaScript in the head section of your page.-->
-<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
-<!--<link rel="stylesheet" type="text/css" href="css/jquery.countdown.css">-->
-<!--<script type="text/javascript" src="js/jquery.plugin.js"></script>-->
-<!--<script type="text/javascript" src="js/jquery.countdown.js"></script>-->
-
 <!--This should be fixed to top along with quiz guess-->
 
 <div class="row">
     <div class="col-md-6" role="main">
-        <div class="fix_top">
+        <!--<div class="fix_top">-->
             <h1><%= @quiz.name %></h1>
-
-            <p id="notice"><%= notice %></p>
-
+            <h6>Created on: <%= @quiz.created_at.strftime("%B %d, %Y") %></h6>
             <% if @quiz.description %>
                 <h3><%= @quiz.description %></h3>
             <% end %>
 
-            <!-- This should be form for new game. Hidden fields for user_id, quiz_id and correct_ans(0).-->
             <div class="pre_quiz">
-              <!--<button class='btn-primary' id="start_quiz">Start Quiz!</button><br><br>-->
                <%= render partial: 'games/form', locals: {quiz: @quiz} %>
-            </div>
+            <!--</div>-->
         </div>
 
-        <!--Look at increment_counter for rails (Game.increment_counter(:correct_ans, @game OR Game.last))-->
-
         <div id="live_game">
-          <!--<div class="fix_top">-->
             <%= render 'guess' %>
-          <!--</div>-->
 
             <table class="table answers">
               <tr class="headings">

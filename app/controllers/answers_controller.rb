@@ -1,6 +1,7 @@
   class AnswersController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :js
 
   # GET /answers
   # GET /answers.json
@@ -33,13 +34,14 @@
   # POST /answers.json
   def create
     @answer = Answer.new(answer_params)
+    @answer.save!
 
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to new_quiz_answer_path(@answer.quiz) }
+        format.html { redirect_to edit_quiz_path(@answer.quiz) }
         format.json { render :show, status: :created, location: @answer }
       else
-        format.html { render :new }
+        format.html { render :new}
         format.json { render json: @answer.errors, status: :unprocessable_entity }
       end
     end

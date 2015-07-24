@@ -1,3 +1,10 @@
+var clock = $('#clock');
+$('[data-toggle="tooltip"]').tooltip();
+
+function getQuizTimer() {
+    return new Date(new Date().valueOf() + (<%= @quiz.time_limit %> * 60 * 1000));
+}
+
 var gameId = <%= @game.id %>
     $('#live_game').show();
     $('#start_quiz').hide();
@@ -5,7 +12,7 @@ var gameId = <%= @game.id %>
     $('#guess').find('.form-control').focus();
     $('.timer').show();
     $('.answer_count').show();
-    $clock.countdown(getQuizTimer(), function(event) {
+    clock.countdown(getQuizTimer(), function(event) {
         $('#clock').show();
         return $(this).html(event.strftime('%M:%S'));
     }).on('finish.countdown', function() {

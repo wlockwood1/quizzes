@@ -12,7 +12,7 @@
 #    $('#guess').find('.form-control').focus()
 #    $('.timer').show()
 #    $('.answer_count').show()
-#    $clock.countdown getQuizTimer(), (event) ->
+#    clock.countdown getQuizTimer(), (event) ->
 #      $(this).html event.strftime('%M:%S')
 #
 ##    Shows all answers and stop quiz when clock hits 0:00
@@ -61,7 +61,7 @@
 #    $('.answer_solution').show()
 #    $('#guess').hide()
 #    $('#give_up').hide()
-#    $clock.countdown('stop');
+#    clock.countdown('stop');
 #
 #  #  Starts game/countdown after pause
 #  $('#start').click (event) ->
