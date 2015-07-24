@@ -1,0 +1,13 @@
+%tbody
+  %tr.answers{:id => "quiz_#{quiz.id}"}
+    %td= quiz.created_at.to_date.strftime("%B %d, %Y")
+    %td= link_to quiz.name, quiz
+    %td= link_to quiz.category.name, quiz.category
+    %td= quiz.games_count
+    - if quiz.user
+      %td= link_to quiz.user.username, user_path(quiz.user)
+    - else
+      %td Unregistered user
+    - if user_signed_in? && current_user == quiz.user
+      %td= link_to 'Edit', edit_quiz_path(quiz)
+      %td= link_to 'Delete Quiz', quiz, method: :delete, data: { confirm: 'Are you sure?' }, remote: true
