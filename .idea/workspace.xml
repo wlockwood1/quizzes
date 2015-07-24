@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2327035a-26fb-4f51-bc3d-726829347e35" name="Default" comment="Turn on static asset serving so we work on heroku">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/quizzes/_timer.html.erb" afterPath="$PROJECT_DIR$/app/views/quizzes/_timer.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/quizzes.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/quizzes.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="quizzes.iws" />
@@ -136,8 +134,8 @@
       <file leaf-file-name="_timer.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/quizzes/_timer.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.19417475">
-              <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.3883495">
+              <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -1186,8 +1184,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/quizzes/_timer.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19417475">
-          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.3883495">
+          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
           <folding />
         </state>
       </provider>
