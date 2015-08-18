@@ -4,6 +4,7 @@ Heroku site: https://infinite-everglades-9127.herokuapp.com
 
 MAJOR TO DO:
     Rspec tests
+    AJAX functionality
     Prettier user interface
 
 MINOR BUGS:
