@@ -9,7 +9,7 @@
       <%= f.hidden_field :quiz_id, value: @quiz.id %>
       <%= f.hidden_field :correct_ans, value: 0 %>
       <%= f.hidden_field :total_ans, value: @quiz.answers.count %>
-      <%= f.submit 'Start game!',class: "new-comment btn btn-primary", id: "start_quiz" %>
+      <%= f.submit 'Start game!', class: "btn btn-primary", id: "start_quiz" %>
     </div>
 <% end %>
 
@@ -17,5 +17,3 @@
       <!--<button class='btn-primary' id="start_quiz"><= f.submit "Start Game!" %></button>-->
     <!--</div>-->
 <!--< end %>-->
-
-

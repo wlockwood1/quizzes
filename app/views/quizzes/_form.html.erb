@@ -14,17 +14,14 @@
     <div class="fields form-group">
       <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.label :name %><br/>
-      <%= f.text_field :name %><br><br>
+      <%= f.text_field :name, class: "form-control" %><br><br>
       <%= f.label :description, "Quiz Description" %>
       <%= f.text_field :description, class: "form-control", placeholder: "Enter a description for the quiz" %><br/>
       <%= f.label :category_id, "Select a category for this quiz" %><br/>
       <%= f.collection_select(:category_id, @categories, :id, :name, :prompt => "Select a Category") %><br/><br/>
       <%= f.label :time_limit, "Please enter the time limit for this quiz (in minutes). Ex: 5.5 would be 5:30" %>
       <%= f.text_field :time_limit %><br><br>
+      <%= f.submit "Create quiz!", class: "btn btn-primary" %>
     </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>
 <br>

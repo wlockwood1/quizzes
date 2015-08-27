@@ -10,21 +10,13 @@
     <div class="col-md-6" role="main">
         <div class="fix_top">
             <h1><%= @quiz.name %></h1>
-
-            <p id="notice"><%= notice %></p>
-
-            <% if @quiz.description %>
-                <h3><%= @quiz.description %></h3>
-            <% end %>
-
+            <h3><%= @quiz.description if @quiz.description %></h3>
             <!-- This should be form for new game. Hidden fields for user_id, quiz_id and correct_ans(0).-->
             <div class="pre_quiz">
               <!--<button class='btn-primary' id="start_quiz">Start Quiz!</button><br><br>-->
                <%= render partial: 'games/form', locals: {quiz: @quiz} %>
             </div>
         </div>
-
-        <!--Look at increment_counter for rails (Game.increment_counter(:correct_ans, @game OR Game.last))-->
 
         <div id="live_game">
           <!--<div class="fix_top">-->
@@ -54,10 +46,8 @@
         </div>
     </div>
     <div class=" col-md-offset-6">
-       <!--<div class="timer">-->
-            <%= render 'timer' %>
-       <!--</div>-->
-        <%= render 'high_scores' %>
+      <%= render 'timer' %>
+      <%= render 'high_scores' %>
     </div>
 </div>
 
