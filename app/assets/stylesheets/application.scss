@@ -12,10 +12,6 @@
  *
 
  */
-
- $navbar-default-bg: #312312;
- $navbar-default-color: #ff8c00;
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -44,7 +40,8 @@ body {
 }
 
 .navbar {
- background-color: lightblue;
+  border-radius: 5px;
+  background-color: green;
 }
 
 .col-md-1 {
