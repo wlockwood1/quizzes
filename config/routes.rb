@@ -6,8 +6,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :quizzes do
     resources :answers
-    #   get :increase_correct_ans, on: :collection
-    # end
     resources :games, only: [:new, :create]
   end
   resources :categories

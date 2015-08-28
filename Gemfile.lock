@@ -40,6 +40,10 @@ GEM
     autoprefixer-rails (5.2.0)
       execjs
       json
+    babel-source (5.8.3)
+    babel-transpiler (0.7.0)
+      babel-source (>= 4.0, < 6)
+      execjs (~> 2.0)
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -63,6 +67,7 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     columnize (0.9.0)
+    connection_pool (2.2.0)
     debase (0.1.4)
       debase-ruby_core_source
     debase-ruby_core_source (0.7.9)
@@ -141,6 +146,13 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rdoc (4.2.0)
+    react-rails (1.1.0)
+      babel-transpiler (>= 0.7.0)
+      coffee-script-source (~> 1.8)
+      connection_pool
+      execjs
+      rails (>= 3.2)
+      tilt
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
     rspec-core (3.2.3)
@@ -216,6 +228,7 @@ DEPENDENCIES
   pg
   rails (= 4.2.1)
   rails_12factor
+  react-rails
   rspec-rails
   ruby-debug-ide
   sass-rails (~> 5.0)

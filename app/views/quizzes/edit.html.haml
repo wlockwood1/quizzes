@@ -4,18 +4,9 @@
     %p You are not permitted to edit the contents of this quiz
   - else
     = render 'form'
-    = link_to 'Show |', @quiz
-    = link_to 'Back |', quizzes_path
-    = link_to 'Add Answers', new_quiz_answer_path(@quiz.id)
-    #show_answers
-      %table.table.answers
-        %tr.headings
-          %th Hint
-          %th Solution
-        - @answers.each do |answer|
-          %tr.answers{:id => "answer_#{answer.id}"}
-            %td= answer.hint
-            %td= answer.solution
-            %td= link_to 'Edit Details', [:edit, @quiz, answer]
-            %td= link_to 'Remove Answer', [@quiz, answer], method: :delete, data: { confirm: 'Are you sure?' }, remote: true
-        %br
+    = react_component 'Answers', {data: @answers}
+
+
+  = link_to 'Play Quiz |', @quiz
+  = link_to 'Back |', quizzes_path
+  = link_to 'Edit Answers', quiz_answers_path(@quiz)
