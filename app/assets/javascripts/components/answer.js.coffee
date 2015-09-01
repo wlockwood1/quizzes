@@ -1,5 +1,3 @@
-
-
 @Answer = React.createClass
   getInitialState: ->
     edit: false

@@ -1,5 +1,3 @@
-
-
 @AnswerForm = React.createClass
   getInitialState: ->
     quiz_id: @props.quizId

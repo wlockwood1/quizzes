@@ -1,5 +1,3 @@
-
-
 @Answers = React.createClass
   getInitialState: ->
     answers: @props.data
