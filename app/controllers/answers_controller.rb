@@ -34,7 +34,7 @@
     @answer = Answer.new(answer_params)
 
     if @answer.save
-      render json: @answer.quiz
+      render json: @answer
     else
       render json: @answer.errors, status: :unprocessable_entity
     end

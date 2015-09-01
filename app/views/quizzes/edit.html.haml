@@ -4,7 +4,7 @@
     %p You are not permitted to edit the contents of this quiz
   - else
     = render 'form'
-    = react_component 'Answers', {data: @answers}
+    = react_component 'Answers', {data: @answers, quizId: @quiz.id}
 
 
   = link_to 'Play Quiz |', @quiz

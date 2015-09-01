@@ -6,10 +6,10 @@ $r = React.DOM
   getDefaultProps: ->
     answers: []
   addAnswer: (answer) ->
-    answers = React.addons.update(@state. answers, { $push: [answer] })
+    answers = React.addons.update(@state.answers, { $push: [answer] })
     @setState answers: answers
   updateAnswer: (answer, data) ->
-    index =@state.answers.indexOf answer
+    index = @state.answers.indexOf answer
     answers = React.addons.update(@state.answers, { $splice: [[index, 1, data]] })
     @replaceState answers: answers
   deleteAnswer: (answer) ->
@@ -22,15 +22,15 @@ $r = React.DOM
       $r.h2
         className: 'title'
         'Answers'
-      React.createElement AnswerForm, handleNewAnswer: @addAnswer
+      React.createElement AnswerForm, quizId: @props.quizId, handleNewAnswer: @addAnswer
       $r.hr null
       $r.table
-        className: 'table table-bordered'
+        className: 'table table-striped table-hover table-responsive table-condensed'
         $r.thead null,
           $r.tr null,
-            $r.th null, 'Hint'
-            $r.th null, 'Solution'
-            $r.th null, 'Actions'
+            $r.th className: 'text-center', null, 'Hint'
+            $r.th className: 'text-center', null, 'Solution'
+            $r.th className: 'text-center', null, 'Actions'
         $r.tbody null,
           for answer in @state.answers
             React.createElement Answer, key: answer.id, answer: answer, handleEditAnswer: @updateAnswer, handleDeleteAnswer: @deleteAnswer

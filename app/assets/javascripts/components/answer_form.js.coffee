@@ -2,7 +2,7 @@ $r = React.DOM
 
 @AnswerForm = React.createClass
   getInitialState: ->
-    quiz_id:
+    quiz_id: @props.quizId
     hint: ''
     solution: ''
   valid: ->
@@ -12,7 +12,7 @@ $r = React.DOM
     @setState "#{ name }": e.target.value
   handleSubmit: (e) ->
     e.preventDefault()
-    $.post '', { answer: @state }, (data) =>
+    $.post "/quizzes/#{ @props.quizId }/answers", { answer: @state }, (data) =>
       @props.handleNewAnswer data
       @setState @getInitialState()
     , 'JSON'

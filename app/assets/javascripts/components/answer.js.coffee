@@ -13,7 +13,7 @@ $r = React.DOM
       solution: React.findDOMNode(@refs.solution).value
     $.ajax
       method: 'PUT'
-      url: "/quizzes/#{ @props.answer.quiz_id}/answers/#{ @props.answer.id}"
+      url: "/quizzes/#{ @props.answer.quiz_id }/answers/#{ @props.answer.id}"
       dataType: 'JSON'
       data:
         answer: data
