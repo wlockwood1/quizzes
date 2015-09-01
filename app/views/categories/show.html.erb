@@ -1,19 +1,9 @@
 <div class="col-md-8">
 
-  <h1><%= @category.name %> Quizzes</h1>
-
-  <%= render 'shared/quiz_header' %>
-
-  <%= render @quizzes %>
-
-  </table>
+<%= react_component 'Quizzes', {data: @quizzes, category: @category.id} %>
 
   <br>
-  <%= link_to 'New Quiz', new_quiz_path %><br>
   <%= link_to 'Main Page', root_path %><br>
   <%= link_to 'Back', categories_path %>
 
 </div>
-
-
-
