@@ -68,11 +68,10 @@ class QuizzesController < ApplicationController
   # DELETE /quizzes/1
   # DELETE /quizzes/1.json
   def destroy
+    @quiz = Quiz.find(params[:id])
     @quiz.destroy
-    respond_to do |format|
-      format.html { redirect_to quizzes_url}
-      format.json { head :no_content }
-    end
+    flash[:notice] = "Quiz deleted."
+    redirect_to '/'
   end
 
   private
