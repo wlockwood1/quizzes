@@ -1,4 +1,4 @@
-$r = React.DOM
+
 
 @AnswerForm = React.createClass
   getInitialState: ->
@@ -17,34 +17,34 @@ $r = React.DOM
       @setState @getInitialState()
     , 'JSON'
   render: ->
-    $r.form
+    React.DOM.form
       className: 'form-inline'
       onSubmit: @handleSubmit
-      $r.div
+      React.DOM.div
         className: 'form-group'
-        $r.input
+        React.DOM.input
           type: 'hidden'
           name: 'quiz_id'
           value: @state.quiz_id
-      $r.div
+      React.DOM.div
         className: 'form-group'
-        $r.input
+        React.DOM.input
           type: 'text'
           className: 'form-control'
           placeholder: 'Hint'
           name: 'hint'
           value: @state.hint
           onChange: @handleChange
-      $r.div
+      React.DOM.div
         className: 'form-group'
-        $r.input
+        React.DOM.input
           type: 'text'
           className: 'form-control'
           placeholder: 'Solution'
           name: 'solution'
           value: @state.solution
           onChange: @handleChange
-      $r.button
+      React.DOM.button
         type: 'submit'
         className: 'btn btn-primary'
         disabled: !@valid()

@@ -1,4 +1,4 @@
-$r = React.DOM
+
 
 @Answers = React.createClass
   getInitialState: ->
@@ -17,20 +17,20 @@ $r = React.DOM
     answers = React.addons.update(@state.answers, { $splice: [[index, 1]] })
     @replaceState answers: answers
   render: ->
-    $r.div
+    React.DOM.div
       className: 'answers'
-      $r.h2
+      React.DOM.h2
         className: 'title'
         'Answers'
       React.createElement AnswerForm, quizId: @props.quizId, handleNewAnswer: @addAnswer
-      $r.hr null
-      $r.table
+      React.DOM.hr null
+      React.DOM.table
         className: 'table table-striped table-hover table-responsive table-condensed'
-        $r.thead null,
-          $r.tr null,
-            $r.th className: 'text-center', null, 'Hint'
-            $r.th className: 'text-center', null, 'Solution'
-            $r.th className: 'text-center', null, 'Actions'
-        $r.tbody null,
+        React.DOM.thead null,
+          React.DOM.tr null,
+            React.DOM.th className: 'text-center', null, 'Hint'
+            React.DOM.th className: 'text-center', null, 'Solution'
+            React.DOM.th className: 'text-center', null, 'Actions'
+        React.DOM.tbody null,
           for answer in @state.answers
             React.createElement Answer, key: answer.id, answer: answer, handleEditAnswer: @updateAnswer, handleDeleteAnswer: @deleteAnswer

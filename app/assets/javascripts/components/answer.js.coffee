@@ -1,4 +1,4 @@
-$r = React.DOM
+
 
 @Answer = React.createClass
   getInitialState: ->
@@ -29,38 +29,38 @@ $r = React.DOM
       success: () =>
         @props.handleDeleteAnswer @props.answer
   answerForm: ->
-    $r.tr null,
-      $r.td null,
-        $r.input
+    React.DOM.tr null,
+      React.DOM.td null,
+        React.DOM.input
           className: 'form-control'
           type: 'text'
           defaultValue: @props.answer.hint
           ref: 'hint'
-      $r.td null,
-        $r.input
+      React.DOM.td null,
+        React.DOM.input
           className: 'form-control'
           type: 'text'
           defaultValue: @props.answer.solution
           ref: 'solution'
-      $r.td null,
-        $r.a
+      React.DOM.td null,
+        React.DOM.a
           className: 'btn btn-default'
           onClick: @handleEdit
           'Update'
-        $r.a
+        React.DOM.a
           className: 'btn btn-danger'
           onClick: @handleToggle
           'Cancel'
   answerRow: ->
-    $r.tr null,
-      $r.td null, @props.answer.hint
-      $r.td null, @props.answer.solution
-      $r.td null,
-        $r.a
+    React.DOM.tr null,
+      React.DOM.td null, @props.answer.hint
+      React.DOM.td null, @props.answer.solution
+      React.DOM.td null,
+        React.DOM.a
           className: 'btn btn-default'
           onClick: @handleToggle
           'Edit'
-        $r.a
+        React.DOM.a
           className: 'btn btn-danger'
           onClick: @handleDelete
           'Delete'
