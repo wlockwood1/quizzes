@@ -16,6 +16,7 @@
               React.DOM.th null, 'Quiz Name'
               React.DOM.th null, 'Quiz Description'
               React.DOM.th null, 'Times Played'
+              React.DOM.th null, 'Actions'
           React.DOM.tbody null,
             for quiz in @state.quizzes
               React.createElement Quiz, key: quiz.id, quiz: quiz
