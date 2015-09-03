@@ -6,5 +6,5 @@
         React.DOM.td null, @props.quiz.games_count
         React.DOM.td null,
           React.DOM.a
-            href: "/quizzes/#{@props.quiz.id}"
+            href: "/quizzes/#{@props.quiz.id}",
             'Play Quiz!'
